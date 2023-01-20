@@ -1,0 +1,37 @@
+.lang-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3.2rem 0;
+
+    .lang-select {
+        color: #000;
+        position: relative;
+        background: none;
+        display: flex;
+        align-items: center;
+        &:active {
+            background: #eee;
+            box-shadow: 0 0 0 4px #eee;
+            border-radius: 8px;
+        }
+        .icon {
+            font-size: 2.4rem;
+            margin-right: 4px;
+            margin-top: -1px;
+        }
+        span {
+            font-size: 1.6rem;
+            font-weight: bold;
+            padding-right: 1.6rem;
+            letter-spacing: -0.04em;
+        }
+
+        &:after {
+            content: '';
+            display: block;
+            @include border-arrow(7px, 6px, #000);
+            right: 0;
+        }
+    }
+}

@@ -1,0 +1,149 @@
+.message-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.7rem;
+    .info {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #000;
+        }
+    }
+
+    .summary {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        .label {
+            color: #888;
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+        .count {
+            width: 3.8rem;
+            height: 2.2rem;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+            font-weight: 700;
+            color: #fff;
+            font-size: 1.4rem;
+        }
+    }
+}
+.message-list {
+    white-space: nowrap;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    &:after {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 100%;
+        background: rgb(255, 255, 255);
+        background: linear-gradient(270deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .message-item {
+        height: 2.2rem;
+        padding: 0 1em;
+        border: 1px solid #2f27af;
+        background: #ecebf8;
+        border-radius: 3px;
+        white-space: nowrap;
+        color: #2f27af;
+        font-weight: 700;
+        font-size: 1.2rem;
+        line-height: 2.1rem;
+        & + .message-item {
+            margin-left: 4px;
+        }
+    }
+}
+.message-view {
+    padding-top: 20px;
+}
+.message-info {
+    margin-bottom: 1.8rem;
+    .row {
+        justify-content: flex-start;
+        gap: 1.6rem;
+        .content {
+            line-height: 1.3;
+            font-size: 1.5rem;
+            font-weight: 500;
+            padding-top: 2px;
+        }
+
+        & + .row {
+            margin-top: 8px;
+        }
+    }
+}
+.message-alert {
+    display: flex;
+    color: #f35f48;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.3;
+    .icon {
+        font-size: 1.9rem;
+        margin-right: 5px;
+    }
+}
+.message-path {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    .icon {
+        font-size: 1.8rem;
+        margin-top: -2px;
+        font-weight: 400;
+    }
+
+    .from {
+        font-weight: 600;
+        color: #2f27af;
+    }
+    .to {
+        font-weight: 600;
+        color: #000;
+    }
+}
+.message-content {
+    border-top: 1px solid #eee;
+    padding: 1.6rem 0 0.6rem;
+    line-height: 1.3;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+.type-badge {
+    width: 4.8rem;
+    height: 2.2rem;
+    border-radius: 3px;
+    background: #2f27af;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    &.sms {
+        background: #12d138;
+    }
+}
+.list-page-wrapper {
+    .message-card {
+        cursor: default;
+    }
+}

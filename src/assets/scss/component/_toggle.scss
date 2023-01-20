@@ -1,0 +1,35 @@
+.toggle-btn {
+    cursor: pointer;
+    input {
+        display: none;
+
+        &:checked ~ .btn {
+            background: #2f27af;
+            &:after {
+                transform: translate(21px, -50%);
+            }
+        }
+    }
+
+    .btn {
+        width: 4rem;
+        height: 2.2rem;
+        border-radius: 9999px;
+        background: #ddd;
+        position: relative;
+        &:after {
+            content: '';
+            display: block;
+            width: 1.6rem;
+            height: 1.6rem;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: auto;
+            transform: translate(3px, -50%);
+            background: #fff;
+            transition: all 0.2s;
+        }
+    }
+}

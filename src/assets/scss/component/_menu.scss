@@ -1,0 +1,115 @@
+.menu-page {
+    .app-inner {
+        padding-top: 1.2rem;
+    }
+}
+.user-info-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 2rem 4px;
+    margin-bottom: 2.2rem;
+    border-bottom: 1px solid #eee;
+    .user-avatar {
+        flex: none;
+        margin-right: auto;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        .user-type {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background: #000;
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .user-name {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.05em;
+        }
+    }
+    .user-info {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #000;
+        text-transform: uppercase;
+        .user-id {
+            opacity: 0.5;
+        }
+    }
+    .logout {
+        color: #c4c4c4;
+        font-size: 2.2rem;
+        padding-left: 1.2rem;
+        margin-left: 1.2rem;
+        background: none;
+        display: flex;
+        align-items: center;
+        position: relative;
+        &:active {
+            color: #000;
+        }
+        &:before {
+            content: '';
+            display: block;
+            width: 1px;
+            height: 1.2rem;
+            background: #ddd;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+}
+
+.menu-list {
+    li + li {
+        margin-top: 2.4rem;
+    }
+    .nav-btn {
+        font-size: 1.8rem;
+        font-weight: 700;
+        letter-spacing: -0.05em;
+        background: none;
+        display: block;
+        width: 100%;
+        text-align: left;
+        &.new {
+            span {
+                position: relative;
+                &:after {
+                    content: 'NEW';
+                    padding: 4px 6px 4px 6px;
+                    border-radius: 9999px;
+                    background: $color-purple-1;
+                    color: #fff;
+                    font-weight: 600;
+                    font-size: 1.2rem;
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translate(calc(100% + 8px), -50%);
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+.copyright {
+    padding: 6rem 0 3rem;
+    font-size: 1.2rem;
+    color: #aeaeae;
+    text-align: center;
+    letter-spacing: 0;
+}

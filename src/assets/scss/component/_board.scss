@@ -1,0 +1,448 @@
+.list-page-wrapper {
+    position: relative;
+    .page-header {
+        width: 100%;
+        background: #fff;
+        .app-inner {
+            padding-top: 6rem;
+        }
+        .page-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #000;
+        }
+        .page-desc {
+            color: #888;
+            font-size: 1.6rem;
+            margin-top: 1em;
+            padding-bottom: 2.4rem;
+            letter-spacing: -0.04em;
+        }
+
+        .multi-search-form {
+            margin: 2.4rem 0;
+            .search-unit-wrapper {
+                box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+            }
+        }
+
+        .addr-field {
+            margin: 1.4rem 0 2.4rem;
+        }
+    }
+    .page-body {
+        padding: 2rem 0;
+        height: 100%;
+
+        .info-title {
+            margin-top: 0.4rem;
+            margin-bottom: 1.6rem;
+        }
+    }
+
+    &.list-mode {
+        .page-header {
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: calc(0px - constant(safe-area-inset-top));
+            top: calc(0px - env(safe-area-inset-top));
+            left: 0;
+            z-index: 2;
+        }
+        .page-body {
+            min-height: 100vh;
+            background: #f9f9f9;
+            &:has(.message-view) {
+                background: #fff;
+            }
+        }
+    }
+    &.view-mode {
+        .page-body {
+            padding-top: 4rem;
+        }
+    }
+
+    .item-body {
+        padding-top: 0.8rem;
+    }
+
+    .item-footer {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 1.6rem;
+        margin-top: 1.6rem;
+        border-top: 1px solid #eee;
+    }
+
+    .item {
+        background: #fff;
+        box-shadow: 0px 5px 21px rgba(0, 0, 0, 0.05);
+        border-radius: $border-radius-md;
+        padding: 1.6rem 2.4rem;
+        cursor: pointer;
+        .item-title {
+            .title {
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: #000;
+                &.line-1 {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+
+            .badge {
+                float: left;
+                width: 4rem;
+                height: 2.2rem;
+                line-height: 2.2rem;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                background: $color-purple-1;
+                border-radius: $border-radius-xs;
+                color: #000;
+                font-weight: 700;
+                font-size: 1.2rem;
+                color: #fff;
+                text-align: center;
+                margin-right: 1.2rem;
+                margin-top: -4px;
+            }
+        }
+
+        .unit {
+            display: flex;
+            align-items: center;
+            .unit-label {
+                font-size: 1.4rem;
+                color: #888;
+                margin-right: 8px;
+            }
+            .unit-content {
+                font-size: 1.4rem;
+                font-weight: 600;
+                color: #000;
+            }
+        }
+
+        //운행일지
+        &.log {
+            .log-title {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-size: 1.5rem;
+                font-weight: 600;
+                padding-bottom: 1.6rem;
+                margin-bottom: 1.6rem;
+                border-bottom: 1px solid #eee;
+                .name {
+                    color: $color-purple-1;
+                }
+            }
+            .log-detail {
+                .detail {
+                    display: flex;
+
+                    .label {
+                        padding-top: 2px;
+                        width: 5em;
+                        flex: 0 0 5em;
+                        padding-left: 2.4rem;
+                        font-weight: 600;
+                        font-size: 1.5rem;
+                        color: #000;
+                        position: relative;
+                        padding-bottom: 1.6rem;
+                        &:before {
+                            content: '';
+                            width: 12px;
+                            height: 12px;
+                            border-radius: 50%;
+                            border: 3px solid #ddd;
+                            background: #fff;
+                            position: absolute;
+                            left: 0;
+                            top: 3px;
+                            z-index: 1;
+                        }
+                    }
+                    .content {
+                        padding-bottom: 1.6rem;
+                        .addr {
+                            line-height: 1.2;
+                            font-weight: 600;
+                            font-size: 1.5rem;
+                            color: #000;
+                            margin-bottom: 0.3em;
+                        }
+                        .date {
+                            font-size: 1.4rem;
+                            color: #888;
+                        }
+                    }
+                    & + .detail {
+                        .label {
+                            padding-bottom: 0;
+                        }
+                        .content {
+                            padding-bottom: 0;
+                        }
+                    }
+                    &.start {
+                        .label {
+                            color: $color-purple-1;
+                            &:before {
+                                border-color: $color-purple-1;
+                            }
+                            &:after {
+                                content: '';
+                                display: block;
+                                width: 2px;
+                                height: 100%;
+                                position: absolute;
+                                background: #eee;
+                                left: 5px;
+                                top: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        //단말기목록
+        &.terminal {
+            .terminal-card {
+                padding: 0.4rem 0;
+                display: flex;
+                align-items: center;
+                .terminal-icon {
+                    width: 3.2rem;
+                    height: 3.2rem;
+                    background-position: center center;
+                    background-size: 180%;
+                    background-repeat: no-repeat;
+                    filter: invert(1);
+                    &.car {
+                        background-image: url('/assets/img/markers/icon-car-1.svg');
+                    }
+
+                    &.motorcycle {
+                        background-image: url('/assets/img/markers/icon-motorcycle-1.svg');
+                    }
+
+                    &.human {
+                        background-image: url('/assets/img/markers/icon-human-1.svg');
+                    }
+
+                    &.bike {
+                        background-image: url('/assets/img/markers/icon-bike-1.svg');
+                    }
+
+                    &.truck {
+                        background-image: url('/assets/img/markers/icon-truck-1.svg');
+                    }
+
+                    &.trash {
+                        background-image: url('/assets/img/markers/icon-trash-1.svg');
+                    }
+
+                    &.school {
+                        background-image: url('/assets/img/markers/icon-school-1.svg');
+                    }
+
+                    &.airplane {
+                        background-image: url('/assets/img/markers/icon-airplane-1.svg');
+                    }
+
+                    &.ship {
+                        background-image: url('/assets/img/markers/icon-ship-1.svg');
+                    }
+
+                    &.crane {
+                        background-image: url('/assets/img/markers/icon-crane-1.svg');
+                    }
+
+                    &.pet {
+                        background-image: url('/assets/img/markers/icon-pet-1.svg');
+                    }
+                }
+                .terminal-info {
+                    padding: 0 1.6rem;
+                    .name {
+                        font-size: 1.6rem;
+                        font-weight: 700;
+                        margin-bottom: 0.3em;
+                    }
+                    .phone {
+                        font-size: 1.4rem;
+                        font-weight: 500;
+                        color: #888;
+                    }
+                }
+                .terminal-matter {
+                    flex: none;
+                    margin-left: auto;
+                    font-weight: 500;
+                    font-size: 1.4rem;
+                    &.matter-1 {
+                        color: #1b61ec;
+                    }
+                    &.matter-2 {
+                        color: #ff8000;
+                    }
+                    &.matter-3 {
+                        color: #ff8000;
+                    }
+                    &.matter-4 {
+                        color: #ff8000;
+                    }
+                }
+                .toggle-btn {
+                    margin-left: auto;
+                    flex: none;
+                }
+            }
+        }
+
+        //지역설정
+        &.region {
+            .info-group {
+                .row {
+                    font-size: 1.5rem;
+                    justify-content: flex-start;
+                    .row-label {
+                        width: 3em;
+                        flex: 0 0 3em;
+                    }
+                    .row-content {
+                        flex: 1;
+                    }
+                }
+            }
+            .link-btn {
+                color: #2f27af;
+                font-weight: 600;
+                display: flex;
+                gap: 8px;
+                align-items: center;
+                font-size: 1.5rem;
+                .icon {
+                    font-weight: 700;
+                    font-size: 1.8rem;
+                }
+            }
+        }
+    }
+
+    .content-box {
+        background: #f9f9f9;
+        padding: 2.8rem 2.4rem;
+        border-radius: $border-radius-md;
+        line-height: 1.5;
+        font-size: 1.6rem;
+        font-weight: 500;
+        color: #000;
+        word-break: keep-all;
+        word-wrap: break-word;
+    }
+
+    .float-btn-wrapper {
+        max-width: 70rem;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.common-list-wrapper {
+    .list {
+        li + li {
+            margin-top: 8px;
+        }
+    }
+}
+
+.common-view-wrapper {
+    padding-bottom: 200px;
+    .view-header {
+        margin-bottom: 3rem;
+    }
+
+    .info-group {
+        .row {
+            font-size: 1.5rem;
+            &.block {
+                display: block;
+                .row-label {
+                    margin-bottom: 1em;
+                }
+            }
+        }
+    }
+
+    .item {
+        box-shadow: none;
+        padding: 0;
+        background: none;
+    }
+
+    .item-title {
+        .title {
+            font-size: 1.8rem;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+        .badge {
+            float: none;
+            margin-top: 0;
+            margin-bottom: 1.6rem;
+        }
+    }
+}
+
+.pre-line {
+    white-space: pre-line;
+}
+
+.terminal-name-badge {
+    display: flex;
+    margin-bottom: 2.4rem;
+    .badge {
+        padding: 0 1.2rem;
+        height: 2.4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: $color-purple-1;
+        color: #fff;
+        font-weight: 600;
+        font-size: 1.3rem;
+        border-radius: 9999px;
+        margin-right: 1.3rem;
+    }
+    .name {
+        line-height: 1.3;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #000;
+        margin-top: -2px;
+    }
+}
+
+.form-row {
+    .row-label {
+        margin-bottom: 1em;
+        font-size: 1.5rem;
+        color: #888;
+        font-weight: 400;
+    }
+
+    & + .form-row {
+        margin-top: 2.6rem;
+    }
+}

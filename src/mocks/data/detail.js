@@ -1,0 +1,28 @@
+const data = {
+    acc_status: 0,
+    unitid: '@@01222707910',
+    latitude: 36.51084,
+    longitude: 129.40591,
+    gps_status: 'V',
+    gps_sv: 0,
+    gps_sv_str: 'gps0.png',
+    speed: 0,
+    event_code: 4,
+    inner_battery: 40,
+    inner_battery_img: 3,
+    vehicle_battery: 140,
+    makedate: '2022-11-28 14:08:32',
+    unitnm: '(주) 스타항공우주',
+    e_on: '2022-11-28 13:52:45',
+    e_off: '2022-11-28 14:08:32',
+    type: 6,
+    prod_nm: '4GUARD ULTRA S',
+    day_dist: 0,
+    total_dist: '2,341.31',
+    iconnum: 12,
+    u_nm: 'none',
+    u_hp: 'none',
+    addr: '경상북도 영덕군 축산면 도곡리 437-1',
+};
+
+export default data;

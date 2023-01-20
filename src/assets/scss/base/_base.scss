@@ -1,0 +1,115 @@
+:root {
+    --rsbs-backdrop-bg: rgba(0, 0, 0, 0.6);
+    --rsbs-bg: #fff;
+    --rsbs-handle-bg: hsla(0, 0%, 0%, 0.14);
+    --rsbs-max-w: 800px;
+    --rsbs-ml: env(safe-area-inset-left);
+    --rsbs-mr: env(safe-area-inset-right);
+    --rsbs-overlay-rounded: 16px;
+}
+html {
+    height: 100%;
+    font-size: 62.5%;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    font-family: $font-base;
+    font-size: 1.6rem;
+    letter-spacing: -0.03em;
+    overflow-y: overlay;
+    &::-webkit-scrollbar {
+        width: 4px;
+        display: none;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: hsla(0, 0%, 42%, 0.49);
+    }
+}
+
+#root {
+    height: 100%;
+}
+
+.hr {
+    width: 100%;
+    height: 4px;
+    background: #f3f3f4;
+    margin: 10px 0;
+}
+
+.flex {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    &.wide {
+        gap: 20px;
+    }
+}
+
+.a11y {
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    top: -9999em;
+    left: -9999em;
+    display: block;
+    text-indent: -9999em;
+    font-size: 0px;
+    line-height: 0;
+}
+
+.hidden {
+    display: none;
+    &.on {
+        display: block;
+    }
+}
+
+tr.hidden {
+    display: none;
+    &.on {
+        display: table-row;
+    }
+}
+
+.blue {
+    color: $color-blue-2;
+}
+.red {
+    color: $color-red-1;
+}
+.green {
+    color: $color-green-1;
+}
+
+.flr {
+    float: right;
+    &:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+}
+button {
+    font-family: inherit;
+    color: inherit;
+    outline: none;
+    border: none;
+}
+button * {
+    pointer-events: none;
+}
+
+//엣지 visual search 방지
+img {
+    pointer-events: none;
+}
+
+//버튼 flex배치
+.btn-flex {
+    display: flex;
+    gap: 6px;
+}

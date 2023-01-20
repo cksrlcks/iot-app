@@ -1,0 +1,30 @@
+.urgent-notice-wrapper {
+    display: flex;
+    align-items: center;
+    background: #000;
+    border-radius: 4px;
+    padding: 1.4rem;
+    cursor: pointer;
+
+    .icon-alert {
+        color: #ff0d0d;
+        font-size: 2rem;
+        margin-right: 12px;
+    }
+    .icon-arrow {
+        color: #fff;
+        font-size: 2rem;
+    }
+    .urgent-notice {
+        font-size: 1.5rem;
+        color: #fff;
+        font-weight: 500;
+        letter-spacing: -0.04em;
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding-right: 1em;
+    }
+}

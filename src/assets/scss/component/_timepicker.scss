@@ -1,0 +1,53 @@
+.time-picker {
+    width: 100%;
+    .picker-inner {
+        max-width: 34rem;
+        gap: 80px;
+        position: relative;
+        margin: 0 auto;
+        &:before {
+            content: '~';
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 22;
+        }
+    }
+    .picker-highlight {
+        display: none;
+    }
+
+    .picker-column:after {
+        content: '';
+        display: block;
+        width: calc(100% - 2em);
+        height: 56px;
+        border-top: 3px solid $color-purple-1;
+        border-bottom: 3px solid $color-purple-1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+    }
+
+    .picker-column:before {
+        content: '시';
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        pointer-events: none;
+    }
+
+    .picker-item {
+        font-weight: 700;
+    }
+
+    .picker-column {
+        transform: translateX(-6px);
+    }
+}

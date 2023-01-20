@@ -1,0 +1,536 @@
+.custom-input {
+    background: #212121;
+    border-radius: $border-radius-sm;
+    height: 5.6rem;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    border: 2px solid #212121ed;
+    .label {
+        font-size: 1.4rem;
+        color: #fff;
+        font-weight: 700;
+        flex: 0 0 4em;
+    }
+    input[type='text'],
+    input[type='password'] {
+        width: 100%;
+        height: 100%;
+        background: none;
+        border: none;
+        padding: 0 1em;
+        color: #fff;
+        font-size: 1.7rem;
+        font-weight: 700;
+        &:focus {
+            border: none;
+            outline: none;
+        }
+        &::placeholder {
+            color: #888;
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+    }
+    .reset-btn {
+        color: #fff;
+        font-size: 2.4rem;
+        flex: none;
+        margin-left: auto;
+        cursor: pointer;
+        opacity: 0;
+        &.on {
+            opacity: 1;
+        }
+    }
+
+    &:has(input:focus) {
+        border-color: $color-purple-1;
+        background: $color-purple-1-bg;
+    }
+}
+
+.custom-checkbox {
+    cursor: pointer;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    input {
+        display: none;
+    }
+    .checkbox {
+        width: 2rem;
+        height: 2rem;
+        background: #4a4a4a;
+        border-radius: $border-radius-xxs;
+    }
+
+    input:checked ~ .checkbox {
+        background: $color-purple-1;
+        position: relative;
+        &:after {
+            content: '';
+            display: block;
+            width: 1rem;
+            height: 0.7rem;
+            border-left: 2px solid #fff;
+            border-bottom: 2px solid #fff;
+            position: absolute;
+            top: calc(50% - 2px);
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+    }
+    .label {
+        padding-top: 2px;
+        color: #fff;
+    }
+}
+
+.common-btn {
+    width: 100%;
+    height: 4.8rem;
+    border-radius: $border-radius-sm;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 0 13px;
+    border: none;
+    .icon {
+        color: #000;
+        font-size: 1.9rem;
+        margin-top: -1px;
+    }
+    span {
+        color: #fff;
+        font-size: 1.6rem;
+        font-weight: 700;
+    }
+
+    &.sm {
+        min-width: 7rem;
+        height: 4rem;
+    }
+
+    &.xs {
+        min-width: 0;
+        height: 2.8rem;
+        font-size: 1.4rem;
+    }
+
+    &.purple {
+        background: $color-purple-1;
+        .icon {
+            color: #fff;
+        }
+        span {
+            color: #fff;
+        }
+    }
+
+    &.white {
+        background: #fff;
+        border: 1px solid #ddd;
+        .icon {
+            color: #000;
+        }
+        span {
+            color: #000;
+        }
+    }
+
+    &.excel {
+        .icon {
+            color: #087233;
+        }
+    }
+}
+
+.custom-datepicker {
+    position: relative;
+    border: 1px solid #ddd;
+    height: 100%;
+    background: #fff;
+    border-radius: $border-radius-xs;
+    box-shadow: 0 5px 0 rgb(0 0 0 / 2%);
+    &:after {
+        @include border-arrow(8px, 6px, #000);
+        right: 1.2rem;
+        pointer-events: none;
+    }
+    input {
+        width: 100%;
+        height: 100%;
+        padding: 0 1.4rem 0 1.2rem;
+        border: none;
+        appearance: none;
+        border-radius: $border-radius-xs;
+        font-size: 1.4rem;
+        color: #000;
+        font-weight: 500;
+        cursor: pointer;
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .datepicker-dropdown {
+        min-width: 320px;
+    }
+}
+
+.custom-check {
+    input {
+        display: none;
+    }
+    .label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 1em;
+        height: 4rem;
+        border-radius: $border-radius-xs;
+        border: 1px solid #ddd;
+        background: #fff;
+        color: #000;
+        font-size: 1.5rem;
+        font-weight: 500;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
+    .label-icon {
+        cursor: pointer;
+        border-radius: $border-radius-xs;
+        border: 1px solid #ddd;
+        max-height: 100px;
+        position: relative;
+        margin-bottom: 1rem;
+        &:after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-position: center;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        &:before {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 0;
+            padding-bottom: 100%;
+            background-position: center;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            opacity: 0;
+        }
+        &.car:after {
+            background-image: url('/assets/img/terminal/icon-car.svg');
+        }
+
+        &.motorcycle:after {
+            background-image: url('/assets/img/terminal/icon-motorcycle.svg');
+        }
+
+        &.human:after {
+            background-image: url('/assets/img/terminal/icon-human.svg');
+        }
+
+        &.bike:after {
+            background-image: url('/assets/img/terminal/icon-bike.svg');
+        }
+
+        &.truck:after {
+            background-image: url('/assets/img/terminal/icon-truck.svg');
+        }
+
+        &.trash:after {
+            background-image: url('/assets/img/terminal/icon-trash.svg');
+        }
+
+        &.school:after {
+            background-image: url('/assets/img/terminal/icon-school.svg');
+        }
+
+        &.airplane:after {
+            background-image: url('/assets/img/terminal/icon-airplane.svg');
+        }
+
+        &.ship:after {
+            background-image: url('/assets/img/terminal/icon-ship.svg');
+        }
+
+        &.crane:after {
+            background-image: url('/assets/img/terminal/icon-crane.svg');
+        }
+
+        &.pet:after {
+            background-image: url('/assets/img/terminal/icon-pet.svg');
+        }
+
+        &.car:before {
+            background-image: url('/assets/img/terminal/icon-car-on.svg');
+        }
+
+        &.motorcycle:before {
+            background-image: url('/assets/img/terminal/icon-motorcycle-on.svg');
+        }
+
+        &.human:before {
+            background-image: url('/assets/img/terminal/icon-human-on.svg');
+        }
+
+        &.bike:before {
+            background-image: url('/assets/img/terminal/icon-bike-on.svg');
+        }
+
+        &.truck:before {
+            background-image: url('/assets/img/terminal/icon-truck-on.svg');
+        }
+
+        &.trash:before {
+            background-image: url('/assets/img/terminal/icon-trash-on.svg');
+        }
+
+        &.school:before {
+            background-image: url('/assets/img/terminal/icon-school-on.svg');
+        }
+
+        &.airplane:before {
+            background-image: url('/assets/img/terminal/icon-airplane-on.svg');
+        }
+
+        &.ship:before {
+            background-image: url('/assets/img/terminal/icon-ship-on.svg');
+        }
+
+        &.crane:before {
+            background-image: url('/assets/img/terminal/icon-crane-on.svg');
+        }
+
+        &.pet:before {
+            background-image: url('/assets/img/terminal/icon-pet-on.svg');
+        }
+    }
+
+    .label-name {
+        font-weight: 500;
+        text-align: center;
+    }
+
+    input:checked ~ .label {
+        background: #d9d6ff;
+        border-color: $color-purple-1;
+        color: $color-purple-1;
+        box-shadow: 0 5px 12px rgba(44, 38, 133, 0.12);
+    }
+
+    input:checked ~ .label-icon {
+        border-color: $color-purple-1;
+        background: #d9d6ff;
+        &:after {
+            opacity: 0;
+        }
+        &:before {
+            opacity: 1;
+        }
+    }
+    input:checked ~ .label-name {
+        color: $color-purple-1;
+    }
+}
+
+.check-group {
+    display: flex;
+    gap: 20px 6px;
+    flex-wrap: wrap;
+    &.narrow {
+        gap: 6px;
+    }
+    &.col-4 {
+        & > * {
+            width: calc(25% - 4.5px);
+        }
+    }
+    &.col-5 {
+        & > * {
+            width: calc(20% - 4.8px);
+        }
+    }
+    &.col-6 {
+        & > * {
+            width: calc(16.667% - 5px);
+            @media screen and (max-width: 560px) {
+                width: calc(25% - 4.5px);
+            }
+        }
+    }
+
+    &.col-icon {
+        & > * {
+            width: calc(25% - 4.5px);
+            @media screen and (min-width: 420px) {
+                width: calc(20% - 4.8px);
+            }
+            @media screen and (min-width: 500px) {
+                width: calc(16.667% - 5px);
+            }
+            @media screen and (min-width: 560px) {
+                width: calc(14.286% - 5.145px);
+            }
+        }
+    }
+
+    &.col-message {
+        & > * {
+            width: calc(50% - 3px);
+            @media screen and (min-width: 480px) {
+                width: calc(33.333% - 4px);
+            }
+            @media screen and (min-width: 640px) {
+                width: calc(25% - 4.5px);
+            }
+        }
+    }
+}
+
+/* input range css */
+.custom-range-wrapper {
+    position: relative;
+    margin: 0 10px;
+}
+.custom-range-wrapper input[type='range'] {
+    touch-action: pan-x;
+    display: block;
+    height: 6px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    appearance: none;
+    cursor: pointer;
+    border: none;
+    background: #eee;
+    border-radius: 9999px;
+}
+.custom-range-wrapper input[type='range']::-webkit-slider-runnable-track {
+    height: 6px;
+    background: transparent;
+    border: 0;
+    border-radius: 9999px;
+    user-select: none;
+}
+.custom-range-wrapper input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    margin-top: -7px;
+    position: relative;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #fff;
+    transition: background 0.3s ease;
+    box-sizing: border-box;
+    opacity: 0;
+}
+.custom-range-wrapper input[type='range']::-moz-range-track {
+    height: 6px;
+    background: transparent;
+    border: 0;
+    border-radius: 9999px;
+    user-select: none;
+}
+.custom-range-wrapper input[type='range']::-moz-range-thumb {
+    position: relative;
+    height: 20px;
+    width: 20px;
+    background: #fff;
+    border-radius: 100%;
+    transition: background 0.3s ease;
+    box-sizing: border-box;
+    opacity: 0;
+}
+.custom-range-wrapper input[type='range']::-moz-focus-outer {
+    border: 0;
+}
+.custom-range-wrapper input[type='range'] ~ .label {
+    position: absolute;
+    top: -4px;
+    transform: translate(-50%, -140%);
+    white-space: nowrap;
+    background: #eaebfd;
+    color: #2c2685;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+}
+.custom-range-wrapper input[type='range'] ~ .label:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    border: 6px solid #2f27af;
+    background: #fff;
+    border-radius: 100%;
+    pointer-events: none;
+}
+.custom-range-wrapper input[type='range'] ~ .range-ticks {
+    margin-top: 20px;
+    position: relative;
+}
+.custom-range-wrapper input[type='range'] ~ .range-ticks .tick-item {
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    cursor: pointer;
+    font-size: 12px;
+    color: #888;
+}
+.custom-range-wrapper input[type='range'] ~ .range-ticks .tick-item:before {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 6px;
+    background: #ddd;
+    position: absolute;
+    left: 50%;
+    top: -10px;
+}
+
+.form-input {
+    width: 100%;
+    height: 4.4rem;
+    border-radius: $border-radius-xs;
+    border: 1px solid #ddd;
+    overflow: hidden;
+
+    &:has(input:focus) {
+        border-color: $color-purple-1;
+    }
+    input {
+        border: none;
+        width: 100%;
+        height: 100%;
+        padding: 0 2rem;
+        font-size: 1.4rem;
+        color: #000;
+        font-weight: 500;
+        &::placeholder {
+            color: #888;
+            font-weight: 400;
+        }
+        &:focus {
+            outline: none;
+        }
+    }
+}

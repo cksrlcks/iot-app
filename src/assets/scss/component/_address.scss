@@ -1,0 +1,36 @@
+.addr-field {
+    .addr-title {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #000;
+        margin-bottom: 8px;
+        line-height: 1.3;
+    }
+    .addr-info {
+        .info-item {
+            display: flex;
+            & + .info-item {
+                margin-top: 4px;
+            }
+            .item-label {
+                width: 3.6rem;
+                height: 2.2rem;
+                border-radius: $border-radius-xs;
+                border: 1px solid #2f27af;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.2rem;
+                font-weight: 700;
+                color: #2f27af;
+            }
+            .item-content {
+                padding-top: 2px;
+                padding-left: 8px;
+                line-height: 1.3;
+                font-size: 1.4rem;
+                color: #555;
+            }
+        }
+    }
+}

@@ -1,0 +1,162 @@
+.drive-card {
+    border-radius: 8px;
+    overflow: hidden;
+    height: 60vh;
+    height: calc(60vh - constant(safe-area-inset-bottom));
+    height: calc(60vh - env(safe-area-inset-bottom));
+    background: #fff url(../../img/drive/drive-bg.png) no-repeat right bottom / 100% auto;
+    padding: 3.6rem 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    box-shadow: 0 18px 24px rgba(0, 0, 0, 0.13);
+    .drive-info {
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 1em;
+            height: 2.4rem;
+            border-radius: 9999px;
+            background: #000;
+            color: #fff;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+        }
+        .name {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.8em;
+        }
+        .info-item {
+            font-size: 1.6rem;
+            display: flex;
+            gap: 1.6rem;
+            & + .info-item {
+                margin-top: 0.6em;
+            }
+            .label {
+                color: #888;
+                font-weight: 600;
+            }
+            .content {
+                color: #000;
+                font-weight: 700;
+            }
+        }
+    }
+    .drive-btn {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .btn {
+            width: 22rem;
+            height: 22rem;
+            padding: 13px;
+            border-radius: 50%;
+            box-shadow: 0 18px 24px rgba(0, 0, 0, 0.23);
+            background: rgb(248, 248, 248);
+            background: linear-gradient(
+                45deg,
+                rgba(248, 248, 248, 1) 0%,
+                rgba(222, 222, 222, 1) 42%,
+                rgba(238, 238, 238, 1) 100%
+            );
+            .btn-inner {
+                display: block;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                background: #087aff;
+                box-shadow: -8px -14px 15px rgba(20, 44, 197, 0.52) inset;
+                transition: all 1s;
+                position: relative;
+
+                .btn-label {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    width: 100%;
+                    height: 100%;
+                    transition: transform 1s;
+
+                    &:before {
+                        content: '';
+                        display: block;
+                        width: 2.8rem;
+                        height: 7px;
+                        border-radius: 9999px;
+                        background: #34f85b;
+                        box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.16) inset;
+                        margin-bottom: 10px;
+                    }
+                }
+                .label {
+                    color: #fff;
+                    font-size: 1.8rem;
+                    font-weight: 500;
+                    margin-bottom: 10px;
+                    opacity: 0.68;
+                }
+                .status-eng {
+                    height: 3rem;
+                    position: relative;
+                    margin-bottom: 1.6rem;
+                    img {
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                    .stop {
+                        opacity: 0;
+                    }
+                }
+                .status-kor {
+                    width: 5.8rem;
+                    height: 2.8rem;
+                    border-radius: 9999px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: 700;
+                    padding-top: 2px;
+                    color: #fff;
+                    font-size: 1.5rem;
+                    background: #000;
+                }
+            }
+
+            &.stop {
+                .btn-inner {
+                    transform: rotate(360deg);
+                    background: #f01f35;
+                    box-shadow: -8px -14px 15px rgba(184, 14, 32, 1) inset;
+
+                    .status-kor {
+                        background: #ffdc00;
+                        color: #f01f35;
+                    }
+
+                    .btn-label {
+                        transform: rotate(-360deg);
+                    }
+                    .status-eng {
+                        .stop {
+                            opacity: 1;
+                        }
+                        .start {
+                            opacity: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

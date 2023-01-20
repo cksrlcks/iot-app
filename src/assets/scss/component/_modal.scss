@@ -1,0 +1,174 @@
+.common-modal {
+    position: fixed;
+    z-index: 1000000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.5);
+
+    &.overflow {
+        overflow-y: overlay;
+    }
+
+    &::-webkit-scrollbar {
+        width: 4px;
+        display: none;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: hsla(0, 0%, 42%, 0.49);
+    }
+
+    .modal-inner {
+        width: 100%;
+        min-height: 100%;
+        display: flex;
+        text-align: center;
+        padding: 5rem 2rem;
+    }
+
+    .modal-page {
+        background: #fff;
+        width: 100%;
+        margin: 0 auto;
+        border-radius: 8px;
+    }
+
+    &.fit {
+        .modal-inner {
+            min-height: 0;
+            height: 100%;
+            align-items: center;
+            .modal-page {
+                max-width: 320px;
+            }
+        }
+    }
+
+    &.compact {
+        .modal-inner {
+            height: 100%;
+            align-items: center;
+            .modal-page {
+                padding: 2rem;
+                max-width: 50rem;
+                text-align: center;
+
+                .modal-icon {
+                    padding: 4rem 0 2rem;
+                }
+
+                .modal-name {
+                    font-size: 1.5rem;
+                    color: #888;
+                    margin-bottom: 1.6rem;
+                }
+                .modal-title {
+                    font-size: 2.4rem;
+                    color: #000;
+                    font-weight: 700;
+                    margin-bottom: 3rem;
+
+                    & + .modal-input {
+                        margin-top: -1rem;
+                    }
+                }
+
+                .modal-input {
+                    margin-bottom: 2rem;
+                    border-bottom: 3px solid #ddd;
+                    input {
+                        background: none;
+                        text-align: center;
+                        border: none;
+                        height: 6.4rem;
+                        font-size: 1.8rem;
+                        font-weight: 700;
+                        color: #000;
+                        &::placeholder {
+                            color: #888;
+                            font-weight: 500;
+                        }
+                        &:focus {
+                            outline: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.list {
+        .modal-inner {
+            max-height: 100%;
+            .modal-page {
+                padding: 2rem 2rem 0;
+                max-width: 50rem;
+                text-align: center;
+            }
+        }
+    }
+
+    // css trasition group
+    &.modal-enter {
+        opacity: 0;
+
+        .modal-inner {
+            opacity: 0;
+            transform: translateY(100px);
+        }
+    }
+    &.modal-enter-active {
+        opacity: 1;
+        transition: all 0.2s;
+        .modal-inner {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.2s;
+        }
+    }
+    &.modal-exit {
+        opacity: 1;
+        .modal-inner {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    &.modal-exit-active {
+        opacity: 0;
+        transition: opacity 0.2s;
+        .modal-inner {
+            opacity: 0;
+            transform: translateY(100px);
+            transition: all 0.5s;
+        }
+    }
+    &.modal-enter-done {
+        opacity: 1;
+        .modal-inner {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+.option-list {
+    li {
+        & + li {
+            border-top: 1px solid #eee;
+        }
+        button {
+            display: flex;
+            align-items: center;
+            padding: 1.2em 1.5em;
+            width: 100%;
+            background: none;
+            border: none;
+            text-align: center;
+            font-weight: 500;
+            font-size: 1.5rem;
+            color: #000;
+        }
+    }
+}

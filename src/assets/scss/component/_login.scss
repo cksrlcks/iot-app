@@ -1,0 +1,203 @@
+.splash-screen {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    transition: opacity 0.2s;
+    z-index: 1;
+
+    &.off {
+        opacity: 0;
+    }
+
+    &.bg-0 {
+        background: #3f4948;
+    }
+    &.bg-1 {
+        background: #040509;
+    }
+    &.bg-2 {
+        background: #86878b;
+    }
+    &.bg-3 {
+        background: #b0b2be;
+    }
+    &.bg-4 {
+        background: #252628;
+    }
+    &.bg-5 {
+        background: #a6ddf1;
+    }
+    .inner {
+        max-width: 800px;
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+    .logo {
+        position: absolute;
+        bottom: 8rem;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .slogon {
+        position: absolute;
+        top: 20%;
+        left: 4.8rem;
+    }
+}
+
+.app-login {
+    height: 100%;
+    background: #0c0a27;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    &.ready {
+        opacity: 1;
+    }
+
+    .login-header {
+        display: flex;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 150vw;
+        max-width: 800px;
+        height: 100vh;
+        overflow: hidden;
+        gap: 16px;
+        opacity: 0.47;
+
+        .login-img {
+            img {
+                width: 100%;
+                height: auto;
+            }
+            &:nth-child(1) {
+                animation: slideDown 300s infinite linear alternate;
+            }
+            &:nth-child(2) {
+                animation: slideUp 300s infinite linear alternate;
+            }
+            &:nth-child(3) {
+                animation: slideDown 300s infinite linear alternate;
+            }
+        }
+    }
+
+    .login-body {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: flex-end;
+        height: 100%;
+        .inner {
+            padding: 18vh 3.6rem 10vh;
+            background: rgb(0, 0, 0);
+            background: linear-gradient(
+                180deg,
+                rgba(0, 0, 0, 0) 0%,
+                rgba(0, 0, 0, 1) 40%,
+                rgba(0, 0, 0, 1) 100%
+            );
+
+            @media screen and (max-width: 500px) {
+                padding: 18vh 2.4rem 10vh;
+            }
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 4.6rem;
+            .logo-img {
+                margin-bottom: 1.5rem;
+            }
+            .logo-ment {
+                font-size: 1.5rem;
+                color: #fff;
+                opacity: 0.79;
+            }
+        }
+    }
+
+    .login-module {
+        max-width: 720px;
+        margin: 0 auto;
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+            -webkit-text-fill-color: #fff;
+            -webkit-box-shadow: 0 0 0 30px transparent inset !important;
+        }
+        .custom-input + .custom-input {
+            margin-top: 6px;
+        }
+        .login-option {
+            margin: 2rem 0 4rem;
+            display: flex;
+            gap: 3rem;
+        }
+
+        .tab-nav {
+            margin-bottom: 2.4rem;
+            border-bottom: 3px solid rgb(255, 255, 255, 0.22);
+
+            li {
+                button {
+                    color: #fff;
+                    margin-bottom: -3px;
+                    opacity: 0.83;
+                    padding: 2.3rem 0;
+                    font-weight: 600;
+                    font-size: 1.7rem;
+                    &.on {
+                        opacity: 1;
+                        font-weight: 700;
+                        &:after {
+                            background: #fff;
+                            height: 3px;
+                        }
+                    }
+                }
+            }
+        }
+        .tab-panel {
+            min-height: 30.8rem;
+        }
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-80%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-80%);
+    }
+}

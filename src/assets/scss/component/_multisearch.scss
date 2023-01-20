@@ -1,0 +1,113 @@
+.multi-search-form {
+    &.message-search {
+        margin-bottom: 3rem;
+    }
+    .search-unit-wrapper {
+        margin-bottom: 1rem;
+    }
+    .search-unit {
+        display: flex;
+        align-items: center;
+        height: 4.4rem;
+        border: 1px solid #ddd;
+        background: #fff;
+        padding: 1.2rem 1.4rem;
+        cursor: pointer;
+
+        & + .search-unit {
+            border-top: none;
+        }
+
+        input {
+            border: none;
+            cursor: pointer;
+            &:focus {
+                outline: none;
+            }
+        }
+
+        .unit-label {
+            min-width: 4.6rem;
+            height: 2.4rem;
+            border-radius: 9999px;
+            padding: 0 1.2rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: $color-purple-1;
+            color: #fff;
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+        .icon {
+            color: #888;
+            font-size: 2rem;
+        }
+        .unit-control {
+            padding: 0 1.5rem;
+            flex: 1;
+            text-align: left;
+            & > * {
+                width: 100%;
+                font-size: 1.5rem;
+                font-weight: 700;
+            }
+        }
+
+        &:first-child {
+            border-radius: 4px 4px 0 0;
+        }
+        &:last-child {
+            border-radius: 0 0 4px 4px;
+            .unit-label {
+                background: #eee;
+                color: #2a2a2a;
+            }
+        }
+        .unit-label.purple {
+            background: #2f27af;
+            color: #fff;
+        }
+    }
+
+    .select {
+        position: relative;
+        .select-panel {
+            position: absolute;
+            top: calc(4.4rem - 2px);
+            left: -1px;
+            background: #fff;
+            width: calc(100% + 2px);
+            height: 20rem;
+            overflow-y: overlay;
+            border: 1px solid #ddd;
+            border-radius: 0 0 4px 4px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04);
+            &::-webkit-scrollbar {
+                width: 4px;
+                overflow: overlay;
+                display: none;
+            }
+            &::-webkit-scrollbar-thumb {
+                background-color: hsla(0, 0%, 42%, 0.49);
+                border-radius: 9999px;
+            }
+            li {
+                padding: 1.4rem 2rem;
+                font-size: 1.5rem;
+                font-weight: 700;
+                & + li {
+                    border-top: 1px solid #eee;
+                }
+            }
+        }
+
+        &.on {
+            .icon {
+                transform: rotate(90deg);
+                color: #000;
+            }
+        }
+    }
+}
