@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import InputMask from 'react-input-mask';
 import ListPage from './../layout/ListPage';
-import CustomCheck from './../common/CustomCheck';
 import Button from './../button/Button';
+import CustomRadio from './../common/CustomRadio';
 
 export default function View({ data }) {
     const navigate = useNavigate();
@@ -165,10 +165,8 @@ export default function View({ data }) {
                                     <div className="row-content">
                                         <div className="check-group col-6 narrow">
                                             {refreshTime.map((item) => {
-                                                const defaultChecked =
-                                                    item === formData.refreshPeriod ? true : false;
                                                 return (
-                                                    <CustomCheck
+                                                    <CustomRadio
                                                         type="radio"
                                                         value={item}
                                                         name="refreshPeriod"
@@ -178,7 +176,7 @@ export default function View({ data }) {
                                                                 : `${item}초`
                                                         }
                                                         key={item}
-                                                        defaultChecked={defaultChecked}
+                                                        checked={formData.refreshPeriod}
                                                         onChange={(e) =>
                                                             onChangeFormData(
                                                                 'refreshPeriod',

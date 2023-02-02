@@ -158,9 +158,26 @@ export function getMarkerType(key) {
         118: 'pet pause network',
         119: 'pet end network',
     };
-    return makerType[key] || 'car start';
+    return makerType[key] || '';
 }
+export function getIconNumber(iconnum) {
+    const num = Math.floor(iconnum / 10);
+    const name = {
+        1: 'car',
+        2: 'motorcycle',
+        3: 'human',
+        4: 'bike',
+        5: 'truck',
+        6: 'trash',
+        7: 'school',
+        8: 'airplane',
+        9: 'ship',
+        10: 'crane',
+        11: 'pet',
+    };
 
+    return name[num] || '';
+}
 export function getPhoneNumber(key) {
     return key.substr(2, 3) + '-' + key.substr(5, 4) + '-' + key.substr(9, 4);
 }

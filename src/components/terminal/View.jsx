@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ListPage from '../layout/ListPage';
 import Button from '../button/Button';
-import { getMarkerType } from '../../lib/mapHelper';
-import CustomCheck from '../common/CustomCheck';
+import { getIconNumber } from '../../lib/mapHelper';
+import CustomRadio from '../common/CustomRadio';
 
 export default function View({ data }) {
     const navigate = useNavigate();
@@ -14,7 +14,11 @@ export default function View({ data }) {
 
     useEffect(() => {
         if (data) {
-            setFormData((prev) => ({ ...prev, matter: data.matter, icon: data.iconnum }));
+            setFormData((prev) => ({
+                ...prev,
+                matter: data.matter,
+                icon: getIconNumber(data.iconnum),
+            }));
         }
     }, [data]);
 
@@ -82,13 +86,13 @@ export default function View({ data }) {
                                 <div className="row-content">
                                     <div className="check-group col-4">
                                         {matterGroup.map((item) => (
-                                            <CustomCheck
+                                            <CustomRadio
                                                 type="radio"
                                                 value={item[0]}
                                                 name="matter"
                                                 label={item[1]}
                                                 key={item[0]}
-                                                defaultChecked={Number(data.matter) === item[0]}
+                                                checked={formData.matter}
                                                 onChange={() =>
                                                     setFormData((prev) => ({
                                                         ...prev,
@@ -105,19 +109,15 @@ export default function View({ data }) {
                                 <div className="row-content">
                                     <div className="check-group col-icon">
                                         {iconGroup.map((item) => {
-                                            const iconName = getMarkerType(data.iconnum);
-                                            const defaultChecked =
-                                                iconName.indexOf(item[0]) !== -1 ? true : false;
-
                                             return (
-                                                <CustomCheck
+                                                <CustomRadio
                                                     type="radio"
                                                     value={item[0]}
-                                                    name="icon"
+                                                    name="sicon"
                                                     label={item[1]}
                                                     key={item[0]}
                                                     icon
-                                                    defaultChecked={defaultChecked}
+                                                    checked={formData.icon}
                                                     onChange={() =>
                                                         setFormData((prev) => ({
                                                             ...prev,

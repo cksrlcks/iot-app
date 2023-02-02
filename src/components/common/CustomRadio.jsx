@@ -1,9 +1,15 @@
 import React from 'react';
 
-export default function CustomCheck({ label, value, checked, icon, onChange }) {
+export default function CustomRadio({ label, value, name, checked, icon, onChange }) {
     return (
         <label className="custom-check">
-            <input type="checkbox" checked={checked} onChange={onChange} />
+            <input
+                type="radio"
+                value={value}
+                checked={checked == value}
+                name={name}
+                onChange={onChange}
+            />
             {icon ? (
                 <>
                     <div className={`label-icon ${value}`}></div>
