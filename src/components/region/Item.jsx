@@ -24,13 +24,15 @@ export default function NoticeItem({ item, deleteItem }) {
                     </div>
                     <div className="row">
                         <div className="row-label">주소</div>
-                        <div className="row-content">{item.region_addr}</div>
+                        <div className="row-content">{item.region_addr_road}</div>
                     </div>
                 </div>
             </div>
             <div className="item-footer">
                 <div className="unit" onClick={handleDelete}>
-                    <span className="unit-label">삭제</span>
+                    <span className="unit-content">
+                        <div className="delete-btn">삭제</div>
+                    </span>
                 </div>
                 <div className="unit">
                     <div className="unit-label" onClick={handleLink}>

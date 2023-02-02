@@ -45,7 +45,7 @@ export default function HistoryItem({ item, handleShowPath }) {
                     </div>
                     <div className="card-date">{item.makedate}</div>
                 </div>
-                <div className="card-body">{addr}</div>
+                <div className="card-body">{addr ? addr : '-'}</div>
             </div>
         </li>
     );

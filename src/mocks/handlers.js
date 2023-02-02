@@ -165,6 +165,19 @@ export const handlers = [
         }
     }),
 
+    //운행일지에서 위치관제 넘어올때
+    rest.get('/api/pathByLog', (req, res, ctx) => {
+        const { searchParams } = req.url;
+        const itemId = searchParams.get('id');
+
+        const selectItem = trackingList.filter((item) => item.unitid === itemId)[0];
+        const pathData = pathDataSmall;
+
+        console.log(selectItem, pathData);
+
+        return res(ctx.status(200), ctx.json({ selectItem, pathData }));
+    }),
+
     //Total Event list (all)
     rest.get('/api/event', (req, res, ctx) => {
         const { searchParams } = req.url;

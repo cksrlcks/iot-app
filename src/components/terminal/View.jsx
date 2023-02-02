@@ -88,7 +88,7 @@ export default function View({ data }) {
                                                 name="matter"
                                                 label={item[1]}
                                                 key={item[0]}
-                                                defaultChecked={data.matter === item[0]}
+                                                defaultChecked={Number(data.matter) === item[0]}
                                                 onChange={() =>
                                                     setFormData((prev) => ({
                                                         ...prev,

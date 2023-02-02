@@ -54,32 +54,19 @@ export default function Map({ data, isLoading, eventData }) {
 
     useEffect(() => {
         if (location.state?.logItemId) {
-            //운행일지에서 넘어올때 가짜 데이터 넣어주기
             const renderLogItem = async () => {
                 const targetId = location.state.logItemId;
-                const selectItem = {
-                    unitid: '@@01222772561',
-                    latitude: 35.03965,
-                    longitude: 126.78889,
-                    event_code: 4,
-                    iconnum: 12,
-                    unit_nm: '91라1016',
-                    makedate: '2022-11-28 14:08:12',
-                };
-
-                const { data: pathData } = await axios.get(
-                    `/api/pathCoords?id=${targetId}&test="small"`
-                );
+                const { data } = await axios.get(`/api/pathByLog?id=${targetId}`);
 
                 mapDispatch({
                     type: 'SET_LOG_ITEM',
                     payload: {
                         logMode: true,
-                        selectItem: selectItem,
+                        selectItem: data.selectItem,
                         historyMode: true,
                         pathMode: true,
-                        pathData: pathData,
-                        selectPathItem: pathData[0],
+                        pathData: data.pathData,
+                        selectPathItem: data.pathData[0],
                     },
                 });
             };

@@ -1,1 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="82" height="82" viewBox="0 0 82 82"><defs><filter id="a" x="0" y="0" width="82" height="82" filterUnits="userSpaceOnUse"><feOffset dy="3" input="SourceAlpha"/><feGaussianBlur stdDeviation="3" result="b"/><feFlood flood-color="#2c2685" flood-opacity="0.122"/><feComposite operator="in" in2="b"/><feComposite in="SourceGraphic"/></filter></defs><g transform="translate(12406 7987)"><g transform="matrix(1, 0, 0, 1, -12406, -7987)" filter="url(#a)"><g transform="translate(9 6)" fill="#d9d6ff" stroke="#2c2685" stroke-width="1" opacity="0"><rect width="64" height="64" rx="3" stroke="none"/><rect x="0.5" y="0.5" width="63" height="63" rx="2.5" fill="none"/></g></g><g transform="translate(-12377 -7961)"><path d="M0,0H24V24H0Z" fill="none"/><path d="M22,13.5V21a1,1,0,0,1-1,1H20a1,1,0,0,1-1-1V20H5v1a1,1,0,0,1-1,1H3a1,1,0,0,1-1-1V13.5L.757,13.19A1,1,0,0,1,0,12.22V11.5A.5.5,0,0,1,.5,11H2.375L4.513,5.3A2,2,0,0,1,6.386,4H17.614a2,2,0,0,1,1.873,1.3L21.625,11H23.5a.5.5,0,0,1,.5.5v.72a1,1,0,0,1-.757.97ZM4,15v2a1,1,0,0,0,1,1H8.245a.5.5,0,0,0,.44-.736Q7.478,15,4,15Zm16,0q-3.475,0-4.686,2.264a.5.5,0,0,0,.441.736H19a1,1,0,0,0,1-1ZM6,6,4.439,10.684A1,1,0,0,0,5.387,12H18.613a1,1,0,0,0,.948-1.316L18,6Z" fill="#2c2685"/></g></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="82" height="82" viewBox="0 0 82 82">
+  <defs>
+    <filter id="사각형_894" x="0" y="0" width="82" height="82" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#2c2685" flood-opacity="0.122"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="그룹_10212" data-name="그룹 10212" transform="translate(12406 7987)">
+    <g transform="matrix(1, 0, 0, 1, -12406, -7987)" filter="url(#사각형_894)">
+      <g id="사각형_894-2" data-name="사각형 894" transform="translate(9 6)" fill="#d9d6ff" stroke="#2c2685" stroke-width="1" opacity="0">
+        <rect width="64" height="64" rx="3" stroke="none"/>
+        <rect x="0.5" y="0.5" width="63" height="63" rx="2.5" fill="none"/>
+      </g>
+    </g>
+    <g id="그룹_36" data-name="그룹 36" transform="translate(-12379 -7961)">
+      <path id="패스_20" data-name="패스 20" d="M0,0H28V28H0Z" fill="none"/>
+      <path id="패스_21" data-name="패스 21" d="M25.667,15.083v8.75A1.167,1.167,0,0,1,24.5,25H23.333a1.167,1.167,0,0,1-1.167-1.167V22.667H5.833v1.167A1.167,1.167,0,0,1,4.667,25H3.5a1.167,1.167,0,0,1-1.167-1.167v-8.75l-1.45-.362A1.167,1.167,0,0,1,0,13.59v-.84a.583.583,0,0,1,.583-.583H2.771L5.265,5.514A2.333,2.333,0,0,1,7.45,4h13.1a2.333,2.333,0,0,1,2.185,1.515l2.494,6.652h2.188A.583.583,0,0,1,28,12.75v.84a1.167,1.167,0,0,1-.883,1.132Zm-21,1.75v2.333a1.167,1.167,0,0,0,1.167,1.167H9.619a.583.583,0,0,0,.513-.859Q8.724,16.832,4.667,16.833Zm18.667,0q-4.055,0-5.467,2.641a.583.583,0,0,0,.514.859h3.786a1.167,1.167,0,0,0,1.167-1.167ZM7,6.333,5.179,11.8a1.167,1.167,0,0,0,1.106,1.535h15.43A1.167,1.167,0,0,0,22.821,11.8L21,6.333Z" transform="translate(0 0.667)" fill="#2c2685"/>
+    </g>
+  </g>
+</svg>
