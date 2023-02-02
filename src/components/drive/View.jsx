@@ -75,22 +75,15 @@ export default function View({ terminalList, data, handleSubmit, isLoading }) {
                                     className={`btn start ${stop ? 'stop' : ''}`}
                                     onClick={() => setOpen(true)}
                                 >
-                                    <span className="btn-inner">
-                                        <div className="btn-label">
-                                            <span className="label">차량운행</span>
-                                            <div className={`status-eng ${stop ? 'stop' : ''}`}>
-                                                <img src={IconStop} alt="stop" className="stop" />
-                                                <img
-                                                    src={IconStart}
-                                                    alt="start"
-                                                    className="start"
-                                                />
-                                            </div>
-                                            <div className="status-kor">
-                                                {stop ? '정지' : '시작'}
-                                            </div>
+                                    <div className="btn-label">
+                                        <span className="label">차량운행</span>
+                                        <div className={`status-eng ${stop ? 'stop' : ''}`}>
+                                            <img src={IconStop} alt="stop" className="stop" />
+                                            <img src={IconStart} alt="start" className="start" />
                                         </div>
-                                    </span>
+                                        <div className="status-kor">{stop ? '정지' : '시작'}</div>
+                                    </div>
+                                    <span className="btn-bg"></span>
                                 </button>
                             </div>
                         </li>

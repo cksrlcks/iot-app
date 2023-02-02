@@ -61,6 +61,7 @@
         align-items: center;
         justify-content: center;
         .btn {
+            position: relative;
             width: 22rem;
             height: 22rem;
             padding: 13px;
@@ -73,96 +74,109 @@
                 rgba(222, 222, 222, 1) 42%,
                 rgba(238, 238, 238, 1) 100%
             );
-            .btn-inner {
+
+            &:active {
+                transform: translateY(4px);
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.43);
+            }
+            .btn-bg {
                 display: block;
-                width: 100%;
-                height: 100%;
+                width: calc(100% - 26px);
+                height: calc(100% - 26px);
                 border-radius: 50%;
                 background: #087aff;
                 box-shadow: -8px -14px 15px rgba(20, 44, 197, 0.52) inset;
                 transition: all 1s;
-                position: relative;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
 
-                .btn-label {
-                    position: absolute;
-                    left: 0;
-                    top: 0;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    flex-direction: column;
-                    width: 100%;
-                    height: 100%;
-                    transition: transform 1s;
+            .btn-label {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
 
-                    &:before {
-                        content: '';
-                        display: block;
-                        width: 2.8rem;
-                        height: 7px;
-                        border-radius: 9999px;
-                        background: #34f85b;
-                        box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.16) inset;
-                        margin-bottom: 10px;
-                    }
-                }
-                .label {
-                    color: #fff;
-                    font-size: 1.8rem;
-                    font-weight: 500;
-                    margin-bottom: 10px;
-                    opacity: 0.68;
-                }
-                .status-eng {
-                    height: 3rem;
-                    position: relative;
-                    margin-bottom: 1.6rem;
-                    img {
-                        position: absolute;
-                        left: 50%;
-                        top: 50%;
-                        transform: translate(-50%, -50%);
-                    }
-                    .stop {
-                        opacity: 0;
-                    }
-                }
-                .status-kor {
-                    width: 5.8rem;
-                    height: 2.8rem;
+                &:before {
+                    content: '';
+                    display: block;
+                    width: 2.8rem;
+                    height: 7px;
                     border-radius: 9999px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    font-weight: 700;
-                    padding-top: 2px;
-                    color: #fff;
-                    font-size: 1.5rem;
-                    background: #000;
+                    background: #34f85b;
+                    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.16) inset;
+                    margin-bottom: 10px;
+                    transition: background 0.4s;
+                    transition-delay: 0.5s;
                 }
+            }
+            .label {
+                color: #fff;
+                font-size: 1.8rem;
+                font-weight: 500;
+                margin-bottom: 10px;
+                opacity: 0.68;
+            }
+            .status-eng {
+                height: 3rem;
+                position: relative;
+                margin-bottom: 1.6rem;
+                img {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                }
+                .stop {
+                    opacity: 0;
+                }
+            }
+            .status-kor {
+                width: 5.8rem;
+                height: 2.8rem;
+                border-radius: 9999px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 700;
+                padding-top: 2px;
+                color: #fff;
+                font-size: 1.5rem;
+                background: #000;
             }
 
             &.stop {
-                .btn-inner {
-                    transform: rotate(360deg);
+                .btn-bg {
+                    transform: translate(-50%, -50%) rotate(360deg);
                     background: #f01f35;
                     box-shadow: -8px -14px 15px rgba(184, 14, 32, 1) inset;
+                }
 
-                    .status-kor {
-                        background: #ffdc00;
-                        color: #f01f35;
-                    }
+                .status-kor {
+                    background: #ffdc00;
+                    color: #f01f35;
+                }
 
-                    .btn-label {
-                        transform: rotate(-360deg);
+                .btn-label {
+                    &:before {
+                        background: #ffeb6a;
                     }
-                    .status-eng {
-                        .stop {
-                            opacity: 1;
-                        }
-                        .start {
-                            opacity: 0;
-                        }
+                }
+                .status-eng {
+                    .stop {
+                        opacity: 1;
+                    }
+                    .start {
+                        opacity: 0;
                     }
                 }
             }
