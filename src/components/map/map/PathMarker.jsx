@@ -34,7 +34,7 @@ export default function PathMarker() {
 function Marker({ item }) {
     const { naver } = window;
     const { mapState, mapDispatch } = useMap();
-    const { map, selectPathItem, pathData } = mapState;
+    const { map, selectPathItem, pathData, selectItem } = mapState;
     const [marker, setMarker] = useState(null);
 
     useEffect(() => {
@@ -53,13 +53,14 @@ function Marker({ item }) {
 
     useEffect(() => {
         if (map && marker) {
-            console.log(item.iconnum);
             marker.setOptions({
                 position: new naver.maps.LatLng(item.latitude, item.longitude),
                 map: map,
                 icon: {
                     content: `
-                    <div class="path-marker car">                        
+                    <div class="path-marker ${getMarkerType(
+                        selectItem.iconnum
+                    )}">                        
                     <div class="marker-name">${item.length}</div>
                 </div>
                 `,
@@ -75,7 +76,7 @@ function Marker({ item }) {
                 });
             });
         }
-    }, [map, marker, naver, item, mapDispatch]);
+    }, [map, marker, naver, item, mapDispatch, selectItem]);
 
     useEffect(() => {
         if (marker && map) {
