@@ -1,6 +1,6 @@
 /* 2023-01-31 김찬기 만듬 */
 export default class InputRange {
-    constructor(el, options) {
+    constructor(el, options, callBack) {
         this.input = el;
 
         //default
@@ -10,6 +10,7 @@ export default class InputRange {
         this.step = this.input.step ? Number(this.input.step) : null;
         this.ticks = false;
         this.unit = '';
+        this.callBack = callBack;
 
         if (options) {
             Object.entries(options).map(([key, value]) => (this[key] = value));
@@ -86,6 +87,7 @@ export default class InputRange {
 
             item.addEventListener('click', (e) => {
                 this.set(value);
+                this.callBack(value);
             });
         });
 
