@@ -907,6 +907,9 @@
             .marker {
                 transform: none;
                 left: auto;
+                bottom: auto;
+                position: relative;
+
                 .icon {
                     background: none;
                     border: none;
@@ -917,7 +920,7 @@
                 }
             }
             .name {
-                padding-top: 1.1rem;
+                padding-top: 1.2rem;
                 line-height: 1.2;
             }
         }
