@@ -24,6 +24,7 @@ export default function UserInfo({ logout }) {
             {logout && (
                 <button className="logout" onClick={handleLogout}>
                     <i className="ri-logout-box-r-fill icon"></i>
+                    <span className="title">로그아웃</span>
                 </button>
             )}
         </div>
