@@ -167,7 +167,6 @@ export default function View({ data }) {
                                             {refreshTime.map((item) => {
                                                 return (
                                                     <CustomRadio
-                                                        type="radio"
                                                         value={item}
                                                         name="refreshPeriod"
                                                         label={
