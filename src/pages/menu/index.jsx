@@ -5,8 +5,10 @@ import Safearea from '../../components/layout/Safearea';
 import Language from '../../components/button/Language';
 import UrgentNotice from '../../components/common/UrgentNotice';
 import UserInfo from '../../components/common/UserInfo';
+import { useAuth } from '../../context/AuthContext';
 
 export default function Menu() {
+    const { user } = useAuth();
     const handleTurnOff = () => {
         alert('앱을 종료합니다.');
     };
@@ -44,11 +46,14 @@ export default function Menu() {
                                 <span>PUSH / SMS</span>
                             </Link>
                         </li>
-                        <li>
-                            <Link to="drive" className="nav-btn">
-                                <span>운행체크</span>
-                            </Link>
-                        </li>
+                        {user.type === 'driver' && (
+                            <li>
+                                <Link to="drive" className="nav-btn">
+                                    <span>운행체크</span>
+                                </Link>
+                            </li>
+                        )}
+
                         <li>
                             <Link to="setting" className="nav-btn">
                                 <span>개인설정</span>
