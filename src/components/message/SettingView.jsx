@@ -130,7 +130,6 @@ export default function SettingView({ data }) {
                                     {Object.entries(formData.eventCode).map((item) => {
                                         return (
                                             <CustomCheck
-                                                type="checkbox"
                                                 checked={item[1]}
                                                 defaultChecked={true}
                                                 label={getEventName(item[0])}

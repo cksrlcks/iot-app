@@ -2,13 +2,13 @@ import React, { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BottomSheet } from 'react-spring-bottom-sheet';
 import { useMap } from '../../context/RegionContext';
-import CustomCheck from './../../components/common/CustomCheck';
 import Button from './../../components/button/Button';
 import CustomRange from '../../components/common/Range';
 import Map from './Map';
 import Marker from './Marker';
 import Circle from './Circle';
 import DaumPostBtn from './DaumPostBtn';
+import CustomRadio from '../common/CustomRadio';
 
 export default function View({ data }) {
     const navigate = useNavigate();
@@ -158,13 +158,12 @@ export default function View({ data }) {
                             <div className="row-content">
                                 <div className="check-group col-4">
                                     {regionSetting.map((item) => (
-                                        <CustomCheck
-                                            type="radio"
+                                        <CustomRadio
                                             value={item}
                                             name="setting"
                                             label={item}
                                             key={item}
-                                            defaultChecked={setting === item}
+                                            checked={setting}
                                             onChange={(e) =>
                                                 onChangeFormData('setting', e.target.value)
                                             }

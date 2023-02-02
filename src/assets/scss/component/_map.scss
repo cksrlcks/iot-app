@@ -579,6 +579,12 @@
     }
 }
 
+//안드로이드 상단 보정
+.android #map .map-control .left,
+.android #map .map-control .right {
+    padding-top: calc(4rem + env(safe-area-inset-top));
+}
+
 //마커 활성화시 상위 엘레멘트에서 active클래스 달림
 .active {
     z-index: 999999999;

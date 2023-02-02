@@ -111,7 +111,6 @@ export default function View({ data }) {
                                         {iconGroup.map((item) => {
                                             return (
                                                 <CustomRadio
-                                                    type="radio"
                                                     value={item[0]}
                                                     name="sicon"
                                                     label={item[1]}

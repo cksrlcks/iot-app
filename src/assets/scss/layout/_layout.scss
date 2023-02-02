@@ -39,6 +39,9 @@ body {
         border-radius: 9999px;
     }
 }
+.android .app-safearea {
+    padding-top: calc(2rem + env(safe-area-inset-top));
+}
 
 .app-page {
     height: 100%;
