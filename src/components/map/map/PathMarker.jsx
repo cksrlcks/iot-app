@@ -53,14 +53,13 @@ function Marker({ item }) {
 
     useEffect(() => {
         if (map && marker) {
+            console.log(item.iconnum);
             marker.setOptions({
                 position: new naver.maps.LatLng(item.latitude, item.longitude),
                 map: map,
                 icon: {
                     content: `
-                    <div class="path-marker  ${getMarkerType(
-                        item.iconnum
-                    )}">                        
+                    <div class="path-marker car">                        
                     <div class="marker-name">${item.length}</div>
                 </div>
                 `,
