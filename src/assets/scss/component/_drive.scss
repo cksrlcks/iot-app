@@ -10,6 +10,15 @@
     flex-direction: column;
     gap: 30px;
     box-shadow: 0 18px 24px rgba(0, 0, 0, 0.13);
+
+    @media screen and (min-width: 500px) {
+        height: 70vh;
+    }
+
+    @media screen and (max-height: 900px) {
+        height: 65vh;
+    }
+
     .drive-info {
         .badge {
             display: inline-flex;
