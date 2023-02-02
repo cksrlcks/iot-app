@@ -78,8 +78,22 @@ export default function View({ terminalList, data, handleSubmit, isLoading }) {
                                     <div className="btn-label">
                                         <span className="label">차량운행</span>
                                         <div className={`status-eng ${stop ? 'stop' : ''}`}>
-                                            <img src={IconStop} alt="stop" className="stop" />
-                                            <img src={IconStart} alt="start" className="start" />
+                                            <div className="img-wrapper">
+                                                <div className="img">
+                                                    <img
+                                                        src={IconStop}
+                                                        alt="stop"
+                                                        className="stop"
+                                                    />
+                                                </div>
+                                                <div className="img">
+                                                    <img
+                                                        src={IconStart}
+                                                        alt="start"
+                                                        className="start"
+                                                    />
+                                                </div>
+                                            </div>
                                         </div>
                                         <div className="status-kor">{stop ? '정지' : '시작'}</div>
                                     </div>

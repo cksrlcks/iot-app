@@ -130,15 +130,28 @@
                 height: 3rem;
                 position: relative;
                 margin-bottom: 1.6rem;
-                img {
-                    position: absolute;
-                    left: 50%;
-                    top: 50%;
-                    transform: translate(-50%, -50%);
+                overflow: hidden;
+                .img-wrapper {
+                    .img {
+                        margin: 2px 0;
+                        transform: translateY(-5.6rem);
+                        transition: transform 0.6s cubic-bezier(0, 1.22, 0.66, 0.99);
+                        transition-delay: 0.4s;
+
+                        & + .img {
+                            margin-top: 3rem;
+                        }
+                    }
                 }
-                .stop {
-                    opacity: 0;
-                }
+                // img {
+                //     position: absolute;
+                //     left: 50%;
+                //     top: 50%;
+                //     transform: translate(-50%, -50%);
+                // }
+                // .stop {
+                //     opacity: 0;
+                // }
             }
             .status-kor {
                 width: 5.8rem;
@@ -172,12 +185,17 @@
                     }
                 }
                 .status-eng {
-                    .stop {
-                        opacity: 1;
+                    .img-wrapper {
+                        .img {
+                            transform: translateY(2px);
+                        }
                     }
-                    .start {
-                        opacity: 0;
-                    }
+                    // .stop {
+                    //     opacity: 1;
+                    // }
+                    // .start {
+                    //     opacity: 0;
+                    // }
                 }
             }
         }
