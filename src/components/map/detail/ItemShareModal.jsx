@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import InputMask from 'react-input-mask';
 import ShareIcon from '../../../assets/img/common/icon-share.svg';
 import Button from '../../button/Button';
+
 export default function ShareModal({ item, isShareModal }) {
     const modalRoot = document.getElementById('modal');
     const [phoneNumber, setPhoneNumber] = useState('');

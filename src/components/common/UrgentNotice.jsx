@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import useSWR from 'swr';
 import { fetcher } from '../../lib/fetcher';
+
 export default function UrgentNotice() {
     const { data } = useSWR('/api/urgent', fetcher, {
         revalidateOnMount: true,

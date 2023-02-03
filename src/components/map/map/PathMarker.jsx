@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useMap } from '../../../context/MapContext';
 import { getCenter, getMarkerType } from '../../../lib/mapHelper';
+
 export default function PathMarker() {
     const { mapState } = useMap();
     const { map, pathData } = mapState;

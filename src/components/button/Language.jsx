@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { CSSTransition } from 'react-transition-group';
 import Logo from '../../assets/img/common/logo-black.svg';
+
 export default function Language() {
     const [isOpen, setIsOpen] = useState(false);
     const handleLanguage = () => {

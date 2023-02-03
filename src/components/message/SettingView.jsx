@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import TypeBadge from './TypeBadge';
 import Button from './../button/Button';
-import { useNavigate } from 'react-router-dom';
 import CustomCheck from './../common/CustomCheck';
 
 export default function SettingView({ data }) {

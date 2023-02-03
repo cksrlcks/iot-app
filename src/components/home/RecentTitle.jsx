@@ -1,7 +1,6 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+
 export default function RecentTitle({ title, desc, onClick }) {
-    const navigate = useNavigate();
     return (
         <div className="recent-title">
             <div className="title">{title}</div>

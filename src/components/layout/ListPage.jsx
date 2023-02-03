@@ -1,7 +1,15 @@
 import React from 'react';
 import Tab from './../common/Tab';
 
-export default function ListPage({ children, search, content, title, desc, mode = 'list', tab }) {
+export default function ListPage({
+    children,
+    search = '',
+    content = '',
+    title,
+    desc,
+    mode = 'list',
+    tab,
+}) {
     return (
         <div className={`list-page-wrapper ${mode}-mode`}>
             <div className="page-header">

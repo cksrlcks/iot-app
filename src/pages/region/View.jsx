@@ -1,13 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
-import useSWR from 'swr';
-import { fetcher } from './../../lib/fetcher';
 import View from '../../components/region/View';
 import { MapProvider } from './../../context/RegionContext';
+import useFetch from './../../hook/useFetch';
 
 export default function ViewPage() {
     const { id } = useParams();
-    const { data, isLoading } = useSWR(() => (id ? `/api/region?id=${id}` : null), fetcher);
+    const { data, isLoading } = useFetch(id ? `/api/region?id=${id}` : null);
 
     return (
         <MapProvider>

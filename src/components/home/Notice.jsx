@@ -1,8 +1,8 @@
 import React from 'react';
-import RecentTitle from './RecentTitle';
+import { useNavigate } from 'react-router-dom';
 import useSWR from 'swr';
 import { fetcher } from './../../lib/fetcher';
-import { useNavigate } from 'react-router-dom';
+import RecentTitle from './RecentTitle';
 
 export default function Notice() {
     const navigate = useNavigate();

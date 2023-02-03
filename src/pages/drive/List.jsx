@@ -1,9 +1,8 @@
 import React from 'react';
-import useSWR from 'swr';
-import { fetcher } from './../../lib/fetcher';
+import useFetch from './../../hook/useFetch';
 import List from './../../components/drive/List';
 
 export default function ListPage() {
-    const { data, isLoading } = useSWR('/api/terminal', fetcher);
+    const { data, isLoading } = useFetch('/api/terminal');
     return <List data={data} isLoading={isLoading} />;
 }

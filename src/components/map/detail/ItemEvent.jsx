@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React from 'react';
 import EventModal from '../event/EventModal';
 import useInfinite from './../../../hook/useInfinite';
 

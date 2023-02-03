@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { useMap } from '../../../context/MapContext';
-import { MarkerClustering, clusterIcons } from '../../../lib/mapHelper';
+import { MarkerClustering, clusterIcons } from '../../../lib/mapCluster';
 
 export default function NaverMap({ children }) {
     const { naver } = window;

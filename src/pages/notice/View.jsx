@@ -1,12 +1,11 @@
 import React from 'react';
-import useSWR from 'swr';
-import { fetcher } from './../../lib/fetcher';
 import { useParams } from 'react-router-dom';
 import ViewPage from './../../components/notice/View';
+import useFetch from './../../hook/useFetch';
 
 export default function View() {
     const { id } = useParams();
-    const { data, isLoading } = useSWR(`/api/notice?id=${id}`, fetcher);
+    const { data, isLoading } = useFetch(`/api/notice?id=${id}`);
 
     return <ViewPage data={data} />;
 }

@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { useMap } from '../../../context/MapContext';
-import axios from '../../../lib/axios';
-import useSWR from 'swr';
-import { fetcher } from '../../../lib/fetcher';
+import useFetch from '../../../hook/useFetch';
 import { getPhoneNumber } from '../../../lib/mapHelper';
 import Button from '../../button/Button';
 import CloseBtn from '../../button/CloseBtn';
@@ -18,14 +16,12 @@ export default function PathDetail() {
     useEffect(() => {
         setOpen(true);
     }, []);
-    const { data, error, isLoading } = useSWR(
-        selectItem
-            ? `/api/pathOneItem?id=${selectItem.unitid}&idx=${selectPathItem.idx}${
-                  logMode ? '&test="small"' : ''
-              }`
-            : null,
-        fetcher
-    );
+    const fetchUrl = selectItem
+        ? `/api/pathOneItem?id=${selectItem.unitid}&idx=${selectPathItem.idx}${
+              logMode ? '&test="small"' : ''
+          }`
+        : null;
+    const { data, error, isLoading } = useFetch(fetchUrl);
 
     const handleClose = () => {
         mapDispatch({ type: 'BLUR' });

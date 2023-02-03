@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function GPSIcon({ status, iconNum, className }) {
+export default function GPSIcon({ status, iconNum, className = '' }) {
     const getGPSStatus = (str) => {
         const status = {
             음영: 'grey',
@@ -19,11 +19,7 @@ export default function GPSIcon({ status, iconNum, className }) {
     };
 
     return (
-        <span
-            className={`icon-gps ${getGPSStatus(iconNum ? iconNum : status)} ${
-                className ? className : ''
-            }`}
-        >
+        <span className={`icon-gps ${getGPSStatus(iconNum ? iconNum : status)} ${className}`}>
             {status}
         </span>
     );

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useMap } from '../../../context/MapContext';
-import Button from '../../button/Button';
 import { getState, getStateKOR, getMarkerType, getPhoneNumber } from '../../../lib/mapHelper';
+import Button from '../../button/Button';
 import CloseBtn from '../../button/CloseBtn';
 import GPSIcon from '../icon/GPSIcon';
 import BatteryIcon from '../icon/BatteryIcon';
@@ -44,7 +44,7 @@ export default function SummarySheet({
                 isEventModal={isEventModal}
                 isShareModal={isShareModal}
             />
-            {!isDetail && (
+            {!isDetail && item && (
                 <>
                     <div className="summary-body">
                         <div className="info-group">
@@ -139,39 +139,45 @@ export default function SummarySheet({
     );
 }
 
-function SummaryHeader({
-    item: { iconnum, event_code, unitnm },
-    isDetail,
-    setIsDetail,
-    isEventModal,
-    isShareModal,
-}) {
+function SummaryHeader({ item, isDetail, setIsDetail, isEventModal, isShareModal }) {
     const { mapState, mapDispatch } = useMap();
     const handleClose = () => {
         isDetail ? setIsDetail(false) : mapDispatch({ type: 'BLUR' });
     };
     return (
-        <div className="summary-header">
-            <div className="item-info-wrapper">
-                <div className="item-info">
-                    <div className={`marker ${getMarkerType(iconnum)}`}>
-                        <span className="icon">
-                            <i></i>
-                        </span>
+        <>
+            {item && (
+                <div className="summary-header">
+                    <div className="item-info-wrapper">
+                        <div className="item-info">
+                            <div className={`marker ${getMarkerType(item.iconnum)}`}>
+                                <span className="icon">
+                                    <i></i>
+                                </span>
+                            </div>
+                            <span className="name">{item.unitnm}</span>
+                        </div>
+                        <div className={`item-status ${getState(item.event_code)}`}>
+                            {getStateKOR(item.event_code)}
+                        </div>
+                        <CloseBtn onClick={handleClose} />
                     </div>
-                    <span className="name">{unitnm}</span>
-                </div>
-                <div className={`item-status ${getState(event_code)}`}>
-                    {getStateKOR(event_code)}
-                </div>
-                <CloseBtn onClick={handleClose} />
-            </div>
-            {isDetail && (
-                <div className="btn-flex">
-                    <Button label="현위치 공유" color="white" onClick={() => isShareModal(true)} />
-                    <Button label="이벤트" color="black" onClick={() => isEventModal(true)} />
+                    {isDetail && (
+                        <div className="btn-flex">
+                            <Button
+                                label="현위치 공유"
+                                color="white"
+                                onClick={() => isShareModal(true)}
+                            />
+                            <Button
+                                label="이벤트"
+                                color="black"
+                                onClick={() => isEventModal(true)}
+                            />
+                        </div>
+                    )}
                 </div>
             )}
-        </div>
+        </>
     );
 }

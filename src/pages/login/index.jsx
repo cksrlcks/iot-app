@@ -10,7 +10,7 @@ export default function LoginPage() {
         <>
             <Splash splash={splash} setSplash={setSplash} time={3000} />
             <Login splash={splash} />
-            <NoticePopup splash={splash} />
+            {!splash && <NoticePopup />}
         </>
     );
 }

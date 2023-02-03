@@ -1,10 +1,9 @@
 import React from 'react';
 import Popup from './Popup';
-import useSWR from 'swr';
-import { fetcher } from './../../lib/fetcher';
+import useFetch from './../../hook/useFetch';
 
 export default function Urgent() {
-    const { data } = useSWR('/api/urgent', fetcher);
+    const { data } = useFetch('/api/urgent');
 
     return <Popup data={data} type="urgent" />;
 }

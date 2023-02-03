@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+import { formatDate } from './../../lib/date';
 import ListWrapper from '../board/List';
 import Item from './MessageItem';
-import LoadingIcon from '../../assets/img/common/icon-loading.svg';
 import Datepicker from './../multiSearch/Datepicker';
 import MultiSearch from './../multiSearch/index';
-import { formatDate } from './../../lib/date';
 import InfoTitle from '../common/InfoTitle';
+import LoadingIcon from '../../assets/img/common/icon-loading.svg';
 
 export default function SmsList({ data, isLoading }) {
     const [startDate, setStartDate] = useState(formatDate(new Date()));

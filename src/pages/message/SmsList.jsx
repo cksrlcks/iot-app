@@ -1,10 +1,9 @@
 import React from 'react';
-import useSWR from 'swr';
-import { fetcher } from './../../lib/fetcher';
 import List from '../../components/message/SmsList';
+import useFetch from './../../hook/useFetch';
 
 export default function SmsList() {
-    const { data, isLoading } = useSWR('/api/message?type=sms', fetcher);
+    const { data, isLoading } = useFetch('/api/message?type=sms');
 
     return <List data={data} isLoading={isLoading} />;
 }

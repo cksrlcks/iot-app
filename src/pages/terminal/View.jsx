@@ -1,12 +1,11 @@
 import React from 'react';
-import useSWR from 'swr';
-import { fetcher } from './../../lib/fetcher';
 import { useParams } from 'react-router-dom';
 
 import View from './../../components/terminal/View';
+import useFetch from './../../hook/useFetch';
 
 export default function ViewPage() {
     const { id } = useParams();
-    const { data, isLoading } = useSWR(`/api/terminal?id=${id}`, fetcher);
+    const { data, isLoading } = useFetch(`/api/terminal?id=${id}`);
     return <View data={data} />;
 }

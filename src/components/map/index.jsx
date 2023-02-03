@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useMap } from '../../context/MapContext';
 import { useLocation } from 'react-router-dom';
-import axios from '../../lib/axios';
+import useFetch from './../../hook/useFetch';
 
 // map
 import NaverMap from './map/NaverMap';
@@ -18,9 +18,8 @@ import ItemHistorySheet from './history/ItemHistorySheet';
 import TotalEvent from './event/TotalEvent';
 
 import Loading from '../common/Loading';
-import PathDetail from './history/PathDetail';
 
-export default function Map({ data, isLoading, eventData }) {
+export default function Map({ data, isLoading }) {
     const location = useLocation();
     const { naver } = window;
     const { mapState, mapDispatch } = useMap();
@@ -30,7 +29,6 @@ export default function Map({ data, isLoading, eventData }) {
         pathData,
         panoItem,
         totalEventMode,
-        selectPathItem,
         historyMode,
         pathMode,
     } = mapState;
@@ -52,28 +50,25 @@ export default function Map({ data, isLoading, eventData }) {
         }
     }, [location, mapDispatch]);
 
+    const fetchUrl = location.state?.logItemId
+        ? `/api/pathByLog?id=${location.state.logItemId}`
+        : null;
+    const { data: logData } = useFetch(fetchUrl);
     useEffect(() => {
-        if (location.state?.logItemId) {
-            const renderLogItem = async () => {
-                const targetId = location.state.logItemId;
-                const { data } = await axios.get(`/api/pathByLog?id=${targetId}`);
-
-                mapDispatch({
-                    type: 'SET_LOG_ITEM',
-                    payload: {
-                        logMode: true,
-                        selectItem: data.selectItem,
-                        historyMode: true,
-                        pathMode: true,
-                        pathData: data.pathData,
-                        selectPathItem: data.pathData[0],
-                    },
-                });
-            };
-
-            renderLogItem();
+        if (logData) {
+            mapDispatch({
+                type: 'SET_LOG_ITEM',
+                payload: {
+                    logMode: true,
+                    selectItem: logData.selectItem,
+                    historyMode: true,
+                    pathMode: true,
+                    pathData: logData.pathData,
+                    selectPathItem: logData.pathData[0],
+                },
+            });
         }
-    }, [location, mapDispatch]);
+    }, [logData, mapDispatch]);
 
     return (
         <>

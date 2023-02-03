@@ -1,4 +1,5 @@
+import axios from './axios';
 export const fetcher = (...args) =>
-    fetch(...args).then((res) => {
-        return res.json();
+    axios(...args).then((res) => {
+        return res.data;
     });

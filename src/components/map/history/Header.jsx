@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { formatDate } from '../../../lib/date';
 import { useMap } from '../../../context/MapContext';
 import DatePicker from '../../picker/DatePicker';
 import TimePicker from '../../picker/TimePicker';
-import { formatDate } from '../../../lib/date';
 import CloseBtn from '../../button/CloseBtn';
 
 export default function Header() {

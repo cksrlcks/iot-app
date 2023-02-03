@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useMap } from '../../../context/MapContext';
 import { CSSTransition } from 'react-transition-group';
+import { useMap } from '../../../context/MapContext';
 import EventModal from './EventModal';
 import useInfinite from './../../../hook/useInfinite';
 

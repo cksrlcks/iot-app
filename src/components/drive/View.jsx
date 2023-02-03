@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
+import { getPhoneNumber } from './../../lib/mapHelper';
 import ListPage from './../layout/ListPage';
 import MultiSearch from './../multiSearch/index';
 import Select from './../multiSearch/Select';
 import ListWrapper from '../board/List';
+import Modal from './Modal';
 import LoadingIcon from '../../assets/img/common/icon-loading.svg';
 import IconStart from '../../assets/img/drive/icon-start.svg';
 import IconStop from '../../assets/img/drive/icon-stop.svg';
-import Modal from './Modal';
-import { getPhoneNumber } from './../../lib/mapHelper';
 
 export default function View({ terminalList, data, handleSubmit, isLoading }) {
     const [select, setSelect] = useState('');

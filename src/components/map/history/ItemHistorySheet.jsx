@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { BottomSheet } from 'react-spring-bottom-sheet';
 import { useMap } from '../../../context/MapContext';
-import axios from '../../../lib/axios';
+import useFetch from './../../../hook/useFetch';
 import Button from '../../button/Button';
 import Header from './Header';
 import ItemHistory from './ItemHistory';
@@ -13,23 +13,28 @@ export default function ItemHistorySheet() {
 
     const [open, setOpen] = useState(false);
     const sheetRef = useRef();
+
     useEffect(() => {
         setOpen(true);
     }, []);
 
-    const handleShowPath = async () => {
-        const itemId = selectItem.unitid;
-        sheetRef.current?.snapTo(({ snapPoints }) => Math.min(...snapPoints));
-
-        try {
-            const { data } = await axios.get(
-                `/api/pathCoords?id=${itemId}${logMode ? '&test="small"' : ''}`
-            );
+    const [fetchPath, setFetchPath] = useState(false);
+    const fetchUrl = fetchPath
+        ? `/api/pathCoords?id=${selectItem.unitid}${logMode ? '&test="small"' : ''}`
+        : null;
+    const { data } = useFetch(fetchUrl);
+    useEffect(() => {
+        if (data) {
             mapDispatch({ type: 'SET_PATH_DATA', payload: data });
-        } catch (err) {
-            console.log(err);
+            setFetchPath(false);
         }
+    }, [data, mapDispatch]);
+
+    const handleShowPath = async () => {
+        sheetRef.current?.snapTo(({ snapPoints }) => Math.min(...snapPoints));
+        setFetchPath(true);
     };
+
     return (
         <>
             {!selectPathItem && (

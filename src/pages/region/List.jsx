@@ -1,10 +1,9 @@
 import React from 'react';
-import useSWR from 'swr';
-import { fetcher } from './../../lib/fetcher';
 import List from '../../components/region/List';
+import useFetch from './../../hook/useFetch';
 
 export default function ListPage() {
-    const { data, isLoading, mutate } = useSWR('/api/region', fetcher, {
+    const { data, isLoading, mutate } = useFetch('/api/region', {
         revalidateOnFocus: false,
     });
 

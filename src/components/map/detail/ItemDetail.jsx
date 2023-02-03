@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { useMap } from '../../../context/MapContext';
-import axios from '../../../lib/axios';
+import useFetch from '../../../hook/useFetch';
 import ItemEvent from './ItemEvent';
 import ShareModal from './ItemShareModal';
 import SummarySheet from './SummarySheet';
@@ -10,10 +10,10 @@ export default function ItemDetail() {
     const { mapState } = useMap();
     const { selectItem } = mapState;
 
+    const [data, setData] = useState(null);
     const [isDetail, setIsDetail] = useState(false);
     const [eventModal, isEventModal] = useState(false);
     const [shareModal, isShareModal] = useState(false);
-
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
@@ -21,31 +21,16 @@ export default function ItemDetail() {
         setIsDetail(false);
     }, [selectItem]);
 
-    const [data, setData] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState(false);
+    const fetchUrl = selectItem
+        ? `/api/detail?id=${selectItem.unitid}&name=${selectItem.unit_nm}`
+        : null;
+    const { data: resonseData, isLoading, error } = useFetch(fetchUrl);
 
     useEffect(() => {
-        const fetch = async () => {
-            setIsLoading(true);
-
-            try {
-                const { data } = await axios.get(
-                    `/api/detail?id=${selectItem.unitid}&name=${selectItem.unit_nm}`
-                );
-                setData(data);
-                setIsLoading(false);
-            } catch (err) {
-                alert(err);
-                console.error(err);
-                setIsLoading(false);
-            }
-        };
-
-        if (selectItem) {
-            fetch();
+        if (resonseData) {
+            setData(resonseData);
         }
-    }, [selectItem]);
+    }, [resonseData]);
 
     return (
         <>

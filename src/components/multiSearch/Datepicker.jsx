@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
+import { formatDate } from '../../lib/date';
 import { Datepicker } from 'vanillajs-datepicker';
 import ko from 'vanillajs-datepicker/locales/ko';
-import { formatDate } from '../../lib/date';
 import Button from '../button/Button';
 
 Object.assign(Datepicker.locales, ko);

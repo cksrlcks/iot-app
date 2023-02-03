@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
-import useSWR from 'swr';
-import { fetcher } from './../../lib/fetcher';
+import useFetch from './../../hook/useFetch';
 import { useParams, useNavigate } from 'react-router-dom';
-
 import View from './../../components/drive/View';
 
 export default function ViewPage() {
     const { id } = useParams();
     const navigate = useNavigate();
-    const { data: terminalList } = useSWR('/api/terminal?mode=drive', fetcher);
-    const { data, isLoading } = useSWR(`/api/terminal?id=${id}`, fetcher);
+    const { data: terminalList } = useFetch('/api/terminal?mode=drive');
+    const { data, isLoading } = useFetch(`/api/terminal?id=${id}`);
 
     const handleSubmit = (select) => {
         navigate(`/menu/drive/${select.unitid}`);

@@ -65,6 +65,7 @@
                 color: #2a2a2a;
             }
         }
+
         .unit-label.purple {
             background: #2f27af;
             color: #fff;
@@ -83,7 +84,7 @@
             overflow-y: overlay;
             border: 1px solid #ddd;
             border-radius: 0 0 4px 4px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.09);
             &::-webkit-scrollbar {
                 width: 4px;
                 overflow: overlay;
@@ -109,5 +110,16 @@
                 color: #000;
             }
         }
+    }
+}
+
+.multi-search-form.item-1 {
+    .search-unit:first-child,
+    .search-unit:last-child {
+        border-radius: 4px;
+    }
+
+    .search-unit.on {
+        border-radius: 4px 4px 0 0 !important;
     }
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { fetcher } from './../../lib/fetcher';
 import useSWR from 'swr';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { fetcher } from './../../lib/fetcher';
 import RecentTitle from './RecentTitle';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 export default function Event() {

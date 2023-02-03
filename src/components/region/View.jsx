@@ -12,9 +12,8 @@ import CustomRadio from '../common/CustomRadio';
 
 export default function View({ data }) {
     const navigate = useNavigate();
-    const { naver } = window;
     const { mapState, mapDispatch } = useMap();
-    const { coords, addr, circle } = mapState;
+    const { coords, addr } = mapState;
 
     const [open, setOpen] = useState(true);
     const regionSetting = ['설정해제', '진입', '이탈', '진입/이탈'];
