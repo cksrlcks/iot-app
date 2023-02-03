@@ -86,7 +86,7 @@ export default function View({ data }) {
                                                 value={formData.password}
                                                 name="pasword"
                                                 onChange={(e) =>
-                                                    onChangeFormData('pasword', e.target.value)
+                                                    onChangeFormData('password', e.target.value)
                                                 }
                                             />
                                         </div>
@@ -102,7 +102,7 @@ export default function View({ data }) {
                                                 value={formData.new_password}
                                                 name="new_pasword"
                                                 onChange={(e) =>
-                                                    onChangeFormData('new_pasword', e.target.value)
+                                                    onChangeFormData('new_password', e.target.value)
                                                 }
                                             />
                                         </div>
