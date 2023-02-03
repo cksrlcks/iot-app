@@ -163,7 +163,7 @@ export default function View({ data }) {
                                             name="setting"
                                             label={item}
                                             key={item}
-                                            checked={setting}
+                                            checked={setting == item}
                                             onChange={(e) =>
                                                 onChangeFormData('setting', e.target.value)
                                             }

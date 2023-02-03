@@ -92,7 +92,7 @@ export default function View({ data }) {
                                                 name="matter"
                                                 label={item[1]}
                                                 key={item[0]}
-                                                checked={formData.matter}
+                                                checked={Number(formData.matter) === item[0]}
                                                 onChange={() =>
                                                     setFormData((prev) => ({
                                                         ...prev,
@@ -116,7 +116,7 @@ export default function View({ data }) {
                                                     label={item[1]}
                                                     key={item[0]}
                                                     icon
-                                                    checked={formData.icon}
+                                                    checked={formData.icon === item[0]}
                                                     onChange={() =>
                                                         setFormData((prev) => ({
                                                             ...prev,

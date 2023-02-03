@@ -175,7 +175,7 @@ export default function View({ data }) {
                                                                 : `${item}초`
                                                         }
                                                         key={item}
-                                                        checked={formData.refreshPeriod}
+                                                        checked={formData.refreshPeriod === item}
                                                         onChange={(e) =>
                                                             onChangeFormData(
                                                                 'refreshPeriod',
