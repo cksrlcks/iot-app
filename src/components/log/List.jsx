@@ -17,13 +17,6 @@ export default function List({ terminalList, data, handleSubmit, isLoading }) {
         setSelect(item);
     };
 
-    const scrollRestore = () => {
-        document.querySelector('.app-safearea').scroll({
-            top: 0,
-            behavior: 'smooth',
-        });
-    };
-
     return (
         <ListPage
             title="운행일지"
@@ -31,7 +24,6 @@ export default function List({ terminalList, data, handleSubmit, isLoading }) {
                 <MultiSearch
                     label="검색"
                     onClick={() => {
-                        scrollRestore();
                         handleSubmit(select);
                     }}
                 >
