@@ -60,8 +60,14 @@ export const handlers = [
     rest.get('/api/detail', (req, res, ctx) => {
         const { searchParams } = req.url;
         const itemId = searchParams.get('id');
-        const itemName = searchParams.get('name');
-        return res(ctx.status(200), ctx.delay(500), ctx.json({ ...detail, unitnm: itemName }));
+        //const itemName = searchParams.get('name');
+        console.log(trackingList.filter((item) => item.unitid === itemId));
+        const { iconnum, unit_nm } = trackingList.filter((item) => item.unitid === itemId)[0];
+        return res(
+            ctx.status(200),
+            ctx.delay(500),
+            ctx.json({ ...detail, unitnm: unit_nm, iconnum: iconnum })
+        );
     }),
 
     //Item Path Detail Data (페이징처리)
