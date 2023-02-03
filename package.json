@@ -7,6 +7,8 @@
         "@testing-library/react": "^13.4.0",
         "@testing-library/user-event": "^13.5.0",
         "axios": "^1.2.3",
+        "babel-polyfill": "^6.26.0",
+        "core-js": "^3.27.2",
         "msw": "^1.0.0",
         "prettier": "^2.8.3",
         "react": "^18.2.0",
@@ -23,6 +25,7 @@
         "react-scripts": "5.0.1",
         "react-spring-bottom-sheet": "^3.4.1",
         "react-transition-group": "^4.4.5",
+        "regenerator-runtime": "^0.13.11",
         "remixicon": "^2.5.0",
         "sass": "^1.57.1",
         "swiper": "^8.4.6",
@@ -49,11 +52,9 @@
         "production": [
             ">0.2%",
             "not dead",
-            "not op_mini all",
-            "ie 11"
+            "not op_mini all"
         ],
         "development": [
-            "ie 11",
             "last 1 chrome version",
             "last 1 firefox version",
             "last 1 safari version"
