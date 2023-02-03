@@ -40,7 +40,7 @@ export default function ShareModal({ item, isShareModal }) {
             <div className="modal-inner">
                 <div className="modal-page" onClick={(e) => e.stopPropagation()}>
                     <figure className="modal-icon">
-                        <img src={ShareIcon} alt="현 위치 공유" />
+                        <img src={ShareIcon} alt="현 위치 공유" height={44} />
                     </figure>
                     <div className="modal-name">현 위치 공유</div>
                     <div className="modal-title">{item.unitnm}</div>
