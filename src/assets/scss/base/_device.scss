@@ -1,0 +1,10 @@
+.android .app-safearea {
+    padding-top: calc(2rem + env(safe-area-inset-top));
+}
+.android .list-page-wrapper.list-mode .page-header {
+    top: -2.2rem;
+}
+.android #map .map-control .left,
+.android #map .map-control .right {
+    padding-top: calc(4rem + env(safe-area-inset-top));
+}

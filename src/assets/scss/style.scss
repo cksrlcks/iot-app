@@ -4,6 +4,7 @@
 @import './base/base';
 @import './base/font';
 @import './base/webview';
+@import './base/device';
 
 /*helper*/
 @import './helper/keyframe';
@@ -14,8 +15,6 @@
 @import './layout/layout';
 
 /*component*/
-
-// common
 @import './component/common';
 @import './component/input';
 @import './component/datepicker';
@@ -30,31 +29,13 @@
 @import './component/address';
 @import './component/board';
 @import './component/toggle';
-
-// popup
 @import './component/popup';
-
-// login
 @import './component/login';
-
-// map
 @import './component/map';
 @import './component/history';
-
-// menu
 @import './component/menu';
-
-// event
 @import './component/event';
-
-//home
 @import './component/home';
-
-//region
 @import './component/region';
-
-//message
 @import './component/message';
-
-//drive
 @import './component/drive';
