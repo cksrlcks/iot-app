@@ -16,6 +16,8 @@ export default function View({ data }) {
         userName: '',
         companyCode: '',
         password: '',
+        new_password: '',
+        new_password_check: '',
         phone: '',
         email: '',
         refreshPeriod: 0,
@@ -175,7 +177,9 @@ export default function View({ data }) {
                                                                 : `${item}초`
                                                         }
                                                         key={item}
-                                                        checked={formData.refreshPeriod === item}
+                                                        checked={
+                                                            Number(formData.refreshPeriod) === item
+                                                        }
                                                         onChange={(e) =>
                                                             onChangeFormData(
                                                                 'refreshPeriod',
