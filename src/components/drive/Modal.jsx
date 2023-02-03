@@ -10,7 +10,7 @@ export default function Modal({ handleConfirm, stop, setOpen }) {
             <div className="modal-inner">
                 <div className="modal-page" onClick={(e) => e.stopPropagation()}>
                     <figure className="modal-icon">
-                        <img src={Icon} alt="차량운행" />
+                        <img src={Icon} alt="차량운행" height={46} />
                     </figure>
                     <div className="modal-name">차량운행</div>
                     <div className="modal-title">

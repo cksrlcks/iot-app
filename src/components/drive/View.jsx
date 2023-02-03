@@ -56,7 +56,7 @@ export default function View({ terminalList, data, handleSubmit, isLoading }) {
                 <ListWrapper>
                     {isLoading && (
                         <div className="load-more">
-                            <img src={LoadingIcon} alt="loading" height={46} />
+                            <img src={LoadingIcon} alt="loading" />
                         </div>
                     )}
                     {data && (
