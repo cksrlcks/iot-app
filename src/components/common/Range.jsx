@@ -4,10 +4,10 @@ import InputRange from '../../lib/input-range';
 export default function Range({ name, defaultValue, min, max, step, onChangeFormData }) {
     const rangeRef = useRef(null);
     const [rangeInput, setRangeInput] = useState(null);
-    const callBack = (value) => {
-        onChangeFormData(name, value);
-    };
     useEffect(() => {
+        const callBack = (value) => {
+            onChangeFormData(name, value);
+        };
         if (rangeRef.current && !rangeInput) {
             setRangeInput(
                 new InputRange(
@@ -21,7 +21,7 @@ export default function Range({ name, defaultValue, min, max, step, onChangeForm
                 )
             );
         }
-    }, [rangeRef, rangeInput]);
+    }, [rangeRef, rangeInput, name, onChangeFormData]);
 
     const handleChange = (e) => {
         onChangeFormData(name, e.target.value);
