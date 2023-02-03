@@ -21,7 +21,7 @@ export const handlers = [
             ctx.status(200),
             ctx.json({
                 ...userData,
-                userName: '유시스',
+                userName: '홍길동',
             })
         );
     }),
@@ -35,7 +35,7 @@ export const handlers = [
             ctx.status(200),
             ctx.json({
                 userId: userId,
-                userName: '김찬기',
+                userName: '홍길동',
                 companyCode: '유시스',
                 password: 'wfwef29u0',
                 phone: '01075613213',
@@ -172,8 +172,6 @@ export const handlers = [
 
         const selectItem = trackingList.filter((item) => item.unitid === itemId)[0];
         const pathData = pathDataSmall;
-
-        console.log(selectItem, pathData);
 
         return res(ctx.status(200), ctx.json({ selectItem, pathData }));
     }),
