@@ -29,6 +29,10 @@ export default function View({ terminalList, data, handleSubmit, isLoading }) {
     const handleConfirm = () => {
         setOpen(false);
         setTimeout(function () {
+            document.querySelector('.app-safearea').scroll({
+                top: 0,
+                behavior: 'smooth',
+            });
             setStop((prev) => !prev);
         }, 500);
     };

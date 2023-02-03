@@ -6,7 +6,7 @@ export default function Safearea({ children }) {
     const containerRef = useRef(null);
 
     useEffect(() => {
-        document.querySelector('.app-safearea').scroll({
+        containerRef.current?.scroll({
             top: 0,
             behavior: 'smooth',
         });
