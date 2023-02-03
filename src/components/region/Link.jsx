@@ -1,12 +1,10 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import ListPage from '../layout/ListPage';
 import ListWrapper from '../board/List';
 import LinkItem from './LinkItem';
 import InfoTitle from './../common/InfoTitle';
 
 export default function Link({ data }) {
-    const navigate = useNavigate();
     return (
         <ListPage
             title="단말기 연결"

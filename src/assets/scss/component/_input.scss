@@ -335,6 +335,7 @@
     input:checked ~ .label-icon {
         border-color: $color-purple-1;
         background: #d9d6ff;
+        box-shadow: 0 5px 12px rgb(44 38 133 / 12%);
         &:after {
             opacity: 0;
         }
