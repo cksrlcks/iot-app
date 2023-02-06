@@ -16,8 +16,12 @@
     left: 0;
     z-index: 300;
     padding: 4rem 0 0 2.4rem;
-    padding: calc(2rem + constant(safe-area-inset-top)) 0 0 2.4rem;
-    padding: calc(2rem + env(safe-area-inset-top)) 0 0 2.4rem;
+    padding: calc(4rem + constant(safe-area-inset-top)) 0 0 2.4rem;
+    padding: calc(4rem + env(safe-area-inset-top)) 0 0 2.4rem;
+    @media screen and (max-width: 380px) {
+        padding: calc(4rem + constant(safe-area-inset-top)) 0 0 1.6rem;
+        padding: calc(4rem + env(safe-area-inset-top)) 0 0 1.6rem;
+    }
     .find-btn {
         width: 10.4rem;
         height: 4rem;

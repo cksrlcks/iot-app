@@ -10,6 +10,9 @@
 html {
     height: 100%;
     font-size: 62.5%;
+    @media screen and (max-width: 380px) {
+        font-size: 60%;
+    }
 }
 
 body {
@@ -41,10 +44,14 @@ body {
 
 .flex {
     display: flex;
-    gap: 4px;
+    > * + * {
+        margin-left: 4px;
+    }
     align-items: center;
     &.wide {
-        gap: 20px;
+        > * + * {
+            margin-left: 20px;
+        }
     }
 }
 
@@ -111,5 +118,7 @@ img {
 //버튼 flex배치
 .btn-flex {
     display: flex;
-    gap: 6px;
+    > * + * {
+        margin-left: 6px;
+    }
 }

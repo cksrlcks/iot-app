@@ -32,7 +32,9 @@
 }
 .quick-list {
     display: flex;
-    gap: 4px;
+    > * + * {
+        margin-left: 4px;
+    }
     margin: 4px 0 1.6rem;
     li {
         flex: 1;
@@ -178,6 +180,9 @@
                 color: #888;
                 font-weight: 500;
                 font-size: 1.4rem;
+                @media screen and (max-width: 380px) {
+                    font-size: 1.2rem;
+                }
             }
         }
     }

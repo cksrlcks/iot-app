@@ -8,3 +8,11 @@
 .android #map .map-control .right {
     padding-top: calc(4rem + env(safe-area-inset-top));
 }
+
+.android-8,
+.android-9 {
+    [data-rsbs-overlay],
+    .summary-panel {
+        box-shadow: none !important;
+    }
+}

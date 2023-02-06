@@ -36,7 +36,7 @@ export default function SummarySheet({
     }
 
     return (
-        <div className={`${isDetail ? 'on' : ''}`}>
+        <>
             <SummaryHeader
                 item={item}
                 isDetail={isDetail}
@@ -135,7 +135,7 @@ export default function SummarySheet({
                     </div>
                 </div>
             )}
-        </div>
+        </>
     );
 }
 

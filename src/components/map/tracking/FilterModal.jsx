@@ -1,13 +1,13 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 
-export default function FilterModal({ handleFilter }) {
+export default function FilterModal({ handleFilter, setIsFilterOpen }) {
     const modalRoot = document.getElementById('modal');
 
     return createPortal(
-        <div className="common-modal fit">
+        <div className="common-modal fit" onClick={() => setIsFilterOpen(false)}>
             <div className="modal-inner">
-                <div className="modal-page">
+                <div className="modal-page" onClick={(e) => e.stopPropagation()}>
                     <ul className="option-list">
                         <li>
                             <button type="button" onClick={() => handleFilter('unit_nm', 'asc')}>

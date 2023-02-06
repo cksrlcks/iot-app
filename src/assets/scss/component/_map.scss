@@ -38,6 +38,7 @@
                 height: 2.4rem;
                 line-height: 2.6rem;
                 text-align: center;
+                flex: 0 0 4.6rem;
                 &.start {
                     background: #1b61ec;
                 }
@@ -54,13 +55,24 @@
                 font-weight: 700;
                 color: #000;
                 padding-right: 1em;
+                text-align: left;
             }
             .time {
                 margin-left: auto;
                 flex: none;
-                font-size: 1.4rem;
+                font-size: 1.3rem;
                 font-weight: 500;
                 color: #888;
+            }
+
+            @media screen and (max-width: 380px) {
+                .name {
+                    font-size: 1.5rem;
+                }
+                .time {
+                    font-size: 1.2rem;
+                    letter-spacing: -0.05em;
+                }
             }
         }
     }
@@ -412,7 +424,13 @@
             padding: calc(2rem + env(safe-area-inset-top)) 0 0 2.4rem;
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            > * + * {
+                margin-top: 6px;
+            }
+            @media screen and (max-width: 380px) {
+                padding: calc(2rem + constant(safe-area-inset-top)) 0 0 1.6rem;
+                padding: calc(2rem + env(safe-area-inset-top)) 0 0 1.6rem;
+            }
         }
         .right {
             position: absolute;
@@ -422,6 +440,10 @@
             padding: 4rem 2.4rem 0 0;
             padding: calc(2rem + constant(safe-area-inset-top)) 2.4rem 0 0;
             padding: calc(2rem + env(safe-area-inset-top)) 2.4rem 0 0;
+            @media screen and (max-width: 380px) {
+                padding: calc(2rem + constant(safe-area-inset-top)) 1.6rem 0 0;
+                padding: calc(2rem + env(safe-area-inset-top)) 1.6rem 0 0;
+            }
         }
         .control-btn {
             background: #fff;
@@ -455,7 +477,9 @@
             }
             &:before {
                 content: attr(data-num);
-                display: block;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 height: 2.2rem;
                 padding: 0 0.5em;
                 border-radius: 9999px;
@@ -463,7 +487,6 @@
                 color: #fff;
                 font-size: 1.4rem;
                 font-weight: 700;
-                line-height: 2.2rem;
                 text-align: center;
                 position: absolute;
                 left: 60%;
@@ -879,14 +902,17 @@
     }
 
     &.detail-panel {
-        height: 34rem;
-        height: calc(34rem + constant(safe-area-inset-bottom));
-        height: calc(34rem + env(safe-area-inset-bottom));
+        > div {
+            height: 22rem;
+            height: calc(22rem + constant(safe-area-inset-bottom));
+            height: calc(22rem + env(safe-area-inset-bottom));
+            transition: all 0.2s ease;
+        }
 
-        &:has(.on) {
-            height: 58rem;
-            height: calc(58rem + constant(safe-area-inset-bottom));
-            height: calc(58rem + env(safe-area-inset-bottom));
+        > div.on {
+            height: 46rem;
+            height: calc(46rem + constant(safe-area-inset-bottom));
+            height: calc(46rem + env(safe-area-inset-bottom));
         }
     }
 
@@ -943,7 +969,9 @@
             font-size: 1.3rem;
             font-weight: 600;
             text-align: center;
-            line-height: 2.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-right: 6px;
             color: #fff;
             flex: none;
@@ -974,6 +1002,9 @@
         span {
             font-size: 1.5rem;
         }
+        @media screen and (max-width: 380px) {
+            height: 4rem;
+        }
     }
 
     &.path-panel {
@@ -994,6 +1025,7 @@
                 color: #fff;
                 font-weight: 700;
                 font-size: 1.4rem;
+                line-height: 24px;
             }
             .label {
                 color: #888;
@@ -1012,7 +1044,9 @@
 
         .detail-dashboard {
             display: flex;
-            gap: 4px;
+            > * + * {
+                margin-left: 4px;
+            }
             margin-bottom: 16px;
 
             .info-item {
@@ -1039,6 +1073,18 @@
             .info-item:nth-child(3) {
                 flex: 0 0 28%;
             }
+
+            @media screen and (max-width: 380px) {
+                .info-item {
+                    padding: 14px 16px;
+                    .item-label {
+                        font-size: 1.3rem;
+                    }
+                    .item-content {
+                        font-size: 1.2rem;
+                    }
+                }
+            }
         }
         .info-group {
             padding: 0 4px;
@@ -1055,7 +1101,9 @@
     .row {
         font-size: 1.4rem;
         display: flex;
-        gap: 2em;
+        > * + * {
+            margin-left: 2em;
+        }
         justify-content: space-between;
         & + .row {
             margin-top: 1rem;
@@ -1067,6 +1115,7 @@
         .row-content {
             color: #000;
             font-weight: 600;
+            margin-left: 0;
         }
     }
 }

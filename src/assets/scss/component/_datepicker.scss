@@ -52,7 +52,7 @@
         .datepicker-controls {
             .today-btn {
                 position: absolute;
-                top: 19px;
+                top: 18px;
                 right: 70px;
                 width: 7rem;
                 height: 3rem;
@@ -181,5 +181,21 @@
         border-radius: 8px;
         max-width: 60rem;
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .datepicker-picker .datepicker-header .datepicker-controls .view-switch {
+        font-size: 1.6rem;
+    }
+    .datepicker-picker .datepicker-header .datepicker-controls .next-btn,
+    .datepicker-picker .datepicker-header .datepicker-controls .prev-btn {
+        margin-top: 3px;
+    }
+    .datepicker-picker .datepicker-header .datepicker-controls .view-switch:after {
+        margin-top: -1px;
+    }
+    .datepicker-picker .datepicker-footer .datepicker-controls .today-btn {
+        top: 10px;
     }
 }

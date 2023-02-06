@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import Button from '../button/Button';
 import Picker from 'react-mobile-picker-scroll';
 
 export default function TimePicker({ value, setTime }) {
     const modalRoot = document.getElementById('modal');
+    const modalRef = useRef(null);
     const [isOpen, setIsOpen] = useState(false);
     const [valueGroups, setValueGroups] = useState({
         from: 5,
@@ -43,7 +44,11 @@ export default function TimePicker({ value, setTime }) {
             </div>
             {isOpen &&
                 createPortal(
-                    <div className="modal-datepicker" onClick={() => setIsOpen(false)}>
+                    <div
+                        className="modal-datepicker"
+                        ref={modalRef}
+                        onClick={() => setIsOpen(false)}
+                    >
                         <div className="modal-inner" onClick={(e) => e.stopPropagation()}>
                             <div className="time-picker">
                                 <Picker

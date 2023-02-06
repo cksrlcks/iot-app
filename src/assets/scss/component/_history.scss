@@ -32,6 +32,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            text-align: center;
+            line-height: 2rem;
             padding: 0 6px;
             margin-right: 1rem;
             background: $color-purple-1;
@@ -90,6 +92,22 @@
             font-size: 1.4rem;
             color: #888;
         }
+        @media screen and (max-width: 380px) {
+            .card-num {
+                font-size: 1.2rem;
+                min-width: 2.4rem;
+            }
+            .card-info {
+                font-size: 1.2rem;
+                white-space: nowrap;
+                .info-item {
+                    font-size: 1.2rem;
+                }
+            }
+            .card-date {
+                font-size: 1.2rem;
+            }
+        }
     }
     .card-body {
         padding-left: 4.8rem;
@@ -103,7 +121,9 @@
 
 .history-control {
     display: flex;
-    gap: 6px;
+    > * + * {
+        margin-left: 6px;
+    }
     margin-bottom: 2rem;
 
     .input-wrapper {
@@ -113,7 +133,8 @@
         align-items: center;
         justify-content: space-between;
         border-radius: 9999px;
-        padding: 0 10px;
+        padding: 1px 10px 0 10px;
+        overflow: hidden;
         &.full {
             flex: 1;
         }
@@ -138,6 +159,12 @@
                 outline: none;
             }
         }
+
+        @media screen and (max-width: 380px) {
+            input {
+                font-size: 1.4rem;
+            }
+        }
     }
 
     .arrow {
@@ -157,6 +184,8 @@
         width: 12rem;
         flex: 0 0 12rem;
         justify-content: center;
+        align-items: center;
+        padding-top: 2px;
         span {
             color: #000;
             font-weight: 700;
@@ -164,6 +193,12 @@
         }
         .devider {
             padding: 0 0.4em;
+        }
+
+        @media screen and (max-width: 380px) {
+            span {
+                font-size: 1.4rem;
+            }
         }
     }
 }

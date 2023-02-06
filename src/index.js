@@ -13,6 +13,5 @@ worker.start({
     scope: '/api',
     quiet: true,
 });
-
 const root = ReactDOM.createRoot(document.getElementById('app'));
 root.render(<App />);

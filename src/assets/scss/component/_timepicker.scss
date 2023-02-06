@@ -2,7 +2,9 @@
     width: 100%;
     .picker-inner {
         max-width: 34rem;
-        gap: 80px;
+        > * + * {
+            margin-left: 80px;
+        }
         position: relative;
         margin: 0 auto;
         &:before {

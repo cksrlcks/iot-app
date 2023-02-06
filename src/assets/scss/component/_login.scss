@@ -11,6 +11,7 @@
 
     &.off {
         opacity: 0;
+        visibility: hidden;
     }
 
     &.bg-0 {
@@ -54,15 +55,19 @@
     .slogon {
         position: absolute;
         top: 20%;
-        left: 4.8rem;
+        left: 10%;
     }
 }
 
 .app-login {
     height: 100%;
     background: #0c0a27;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     overflow: hidden;
+
     opacity: 0;
     &.ready {
         opacity: 1;
@@ -70,14 +75,13 @@
 
     .login-header {
         display: flex;
-        position: absolute;
+        position: fixed;
         left: 50%;
         transform: translateX(-50%);
         width: 150vw;
         max-width: 800px;
-        height: 100vh;
+        height: 100%;
         overflow: hidden;
-        gap: 16px;
         opacity: 0.47;
 
         .login-img {
@@ -86,9 +90,11 @@
                 height: auto;
             }
             &:nth-child(1) {
+                margin-right: 16px;
                 animation: slideDown 300s infinite linear alternate;
             }
             &:nth-child(2) {
+                margin-right: 16px;
                 animation: slideUp 300s infinite linear alternate;
             }
             &:nth-child(3) {
@@ -98,15 +104,21 @@
     }
 
     .login-body {
-        position: relative;
-        z-index: 1;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 11;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        overflow-x: hidden;
         display: flex;
         flex-direction: column;
-        align-content: center;
-        justify-content: flex-end;
-        height: 100%;
+
         .inner {
-            padding: 18vh 3.6rem 10vh;
+            flex: none;
+            margin-top: auto;
+            padding: 20vh 3.6rem 10vh;
             background: rgb(0, 0, 0);
             background: linear-gradient(
                 180deg,
@@ -122,9 +134,15 @@
 
         .logo {
             text-align: center;
-            margin-bottom: 4.6rem;
+            margin-bottom: 2.4vh;
+
             .logo-img {
+                max-width: 40vw;
+                margin: 0 auto;
                 margin-bottom: 1.5rem;
+                img {
+                    max-width: 100%;
+                }
             }
             .logo-ment {
                 font-size: 1.5rem;
@@ -150,7 +168,9 @@
         .login-option {
             margin: 2rem 0 4rem;
             display: flex;
-            gap: 3rem;
+            > * + * {
+                margin-left: 3rem;
+            }
         }
 
         .tab-nav {

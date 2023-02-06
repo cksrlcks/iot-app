@@ -36,17 +36,19 @@ export default function ItemDetail() {
         <>
             <CSSTransition in={isOpen} classNames="sheet" timeout={500} unmountOnExit>
                 <div className="summary-panel detail-panel">
-                    {selectItem && (
-                        <SummarySheet
-                            item={data}
-                            isLoading={isLoading}
-                            error={error}
-                            isDetail={isDetail}
-                            setIsDetail={setIsDetail}
-                            isEventModal={isEventModal}
-                            isShareModal={isShareModal}
-                        />
-                    )}
+                    <div className={`${isDetail ? 'on' : ''} `}>
+                        {selectItem && (
+                            <SummarySheet
+                                item={data}
+                                isLoading={isLoading}
+                                error={error}
+                                isDetail={isDetail}
+                                setIsDetail={setIsDetail}
+                                isEventModal={isEventModal}
+                                isShareModal={isShareModal}
+                            />
+                        )}
+                    </div>
                 </div>
             </CSSTransition>
             <CSSTransition in={eventModal} classNames="modal" timeout={500} unmountOnExit>

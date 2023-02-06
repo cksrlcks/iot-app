@@ -1,3 +1,7 @@
+/*helper*/
+@import './helper/keyframe';
+@import './helper/mixin';
+
 /*base*/
 @import './base/reset';
 @import './base/variables';
@@ -5,10 +9,6 @@
 @import './base/font';
 @import './base/webview';
 @import './base/device';
-
-/*helper*/
-@import './helper/keyframe';
-@import './helper/mixin';
 
 /*layout*/
 @import './layout/dock';

@@ -8,7 +8,9 @@
     padding: 3.6rem 3rem;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    > & + * {
+        margin-left: 30px;
+    }
     box-shadow: 0 18px 24px rgba(0, 0, 0, 0.13);
 
     @media screen and (min-width: 500px) {
@@ -41,7 +43,9 @@
         .info-item {
             font-size: 1.6rem;
             display: flex;
-            gap: 1.6rem;
+            > * + * {
+                margin-left: 1.6rem;
+            }
             & + .info-item {
                 margin-top: 0.6em;
             }
@@ -60,6 +64,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+
         .btn {
             position: relative;
             width: 22rem;
@@ -79,6 +84,13 @@
                 transform: translateY(4px);
                 box-shadow: 0 12px 24px rgba(0, 0, 0, 0.43);
             }
+            @media screen and (max-width: 380px) {
+                transform: scale(0.8);
+                &:active {
+                    transform: translateY(4px) scale(0.8);
+                }
+            }
+
             .btn-bg {
                 display: block;
                 width: calc(100% - 26px);

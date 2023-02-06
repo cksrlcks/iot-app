@@ -29,6 +29,22 @@
         .addr-field {
             margin: 1.4rem 0 2.4rem;
         }
+
+        @media screen and (max-width: 380px) {
+            .app-inner {
+                padding-top: 5rem;
+            }
+            .page-title {
+                font-size: 1.7rem;
+            }
+            .page-desc {
+                font-size: 1.4rem;
+                margin-top: 1em;
+            }
+            .addr-field {
+                margin: 0.8rem 0 2rem;
+            }
+        }
     }
     .page-body {
         padding: 2rem 0;
@@ -82,6 +98,11 @@
         padding: 1.6rem 2.4rem;
         cursor: pointer;
         .item-title {
+            &:after {
+                content: '';
+                display: block;
+                clear: both;
+            }
             .title {
                 font-size: 1.5rem;
                 font-weight: 600;
@@ -110,6 +131,7 @@
                 text-align: center;
                 margin-right: 1.2rem;
                 margin-top: -4px;
+                margin-bottom: 0;
             }
         }
 
@@ -138,7 +160,9 @@
             .log-title {
                 display: flex;
                 align-items: center;
-                gap: 8px;
+                > * + * {
+                    margin-left: 8px;
+                }
                 font-size: 1.5rem;
                 font-weight: 600;
                 padding-bottom: 1.6rem;
@@ -214,6 +238,44 @@
                                 top: 10px;
                             }
                         }
+                    }
+                }
+            }
+
+            @media screen and (max-width: 380px) {
+                .log-title {
+                    font-size: 1.4rem;
+                }
+                .log-detail {
+                    .detail {
+                        .label {
+                            font-size: 1.3rem;
+                            &:before {
+                                top: 2px;
+                            }
+                        }
+                        .content {
+                            .addr {
+                                font-size: 1.3rem;
+                            }
+                            .date {
+                                font-size: 1.2rem;
+                            }
+                        }
+                    }
+                }
+
+                .unit {
+                    .unit-label {
+                        font-size: 1.3rem;
+                    }
+                    .unit-content {
+                        font-size: 1.3rem;
+                    }
+                    .delete-btn {
+                        font-weight: 500;
+                        color: #888;
+                        font-size: 1.3rem;
                     }
                 }
             }
@@ -311,6 +373,20 @@
                     margin-left: auto;
                     flex: none;
                 }
+
+                @media screen and (max-width: 380px) {
+                    .terminal-info {
+                        .name {
+                            font-size: 1.4rem;
+                        }
+                        .phone {
+                            font-size: 1.3rem;
+                        }
+                    }
+                    .terminal-matter {
+                        font-size: 1.3rem;
+                    }
+                }
             }
         }
 
@@ -321,8 +397,8 @@
                     font-size: 1.5rem;
                     justify-content: flex-start;
                     .row-label {
-                        width: 3em;
-                        flex: 0 0 3em;
+                        width: 4em;
+                        flex: 0 0 4em;
                     }
                     .row-content {
                         flex: 1;
@@ -335,12 +411,24 @@
                 color: #2f27af;
                 font-weight: 600;
                 display: flex;
-                gap: 8px;
                 align-items: center;
                 font-size: 1.5rem;
                 .icon {
                     font-weight: 700;
                     font-size: 1.8rem;
+                    margin-right: 8px;
+                }
+            }
+
+            @media screen and (max-width: 380px) {
+                .info-group .row {
+                    font-size: 1.4rem;
+                }
+                .link-btn {
+                    .icon {
+                        font-size: 1.6rem;
+                    }
+                    font-size: 1.4rem;
                 }
             }
         }

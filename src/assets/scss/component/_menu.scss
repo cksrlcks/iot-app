@@ -15,7 +15,9 @@
         margin-right: auto;
         display: flex;
         align-items: center;
-        gap: 8px;
+        > * + * {
+            margin-left: 8px;
+        }
         .user-type {
             width: 3rem;
             height: 3rem;
@@ -37,7 +39,9 @@
     .user-info {
         display: flex;
         align-items: center;
-        gap: 3px;
+        > * + * {
+            margin-left: 3px;
+        }
         font-size: 1.5rem;
         font-weight: 600;
         color: #000;
@@ -61,6 +65,9 @@
             margin-left: 6px;
             padding-top: 2px;
             letter-spacing: -0.04em;
+            @media screen and (max-width: 380px) {
+                display: none;
+            }
         }
         &:active {
             color: #000;

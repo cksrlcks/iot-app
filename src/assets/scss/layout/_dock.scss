@@ -29,7 +29,9 @@ html:has(input[type='text'].keyboard:focus) {
 
 .app-nav {
     display: flex;
-    gap: 5px;
+    > * + * {
+        margin-left: 5px;
+    }
     justify-content: center;
     height: 100%;
     li {
@@ -75,6 +77,9 @@ html:has(input[type='text'].keyboard:focus) {
             opacity: 0.55;
             font-size: 1.4rem;
             font-weight: 500;
+            @media screen and (max-width: 380px) {
+                font-size: 1.2rem;
+            }
         }
     }
 
@@ -99,6 +104,8 @@ html:has(input[type='text'].keyboard:focus) {
     }
 
     @media screen and (min-width: 500px) {
-        gap: 10px;
+        > * + * {
+            margin-left: 10px;
+        }
     }
 }

@@ -106,7 +106,7 @@ export default function TrackingList() {
                 <TrackList renderList={renderList} />
             </BottomSheet>
             <CSSTransition in={isFilterOpen} classNames="modal" timeout={200} unmountOnExit>
-                <FilterModal handleFilter={handleFilter} />
+                <FilterModal handleFilter={handleFilter} setIsFilterOpen={setIsFilterOpen} />
             </CSSTransition>
         </>
     );
