@@ -14,12 +14,6 @@ export default function ItemHistorySheet() {
     const { mapState, mapDispatch } = useMap();
     const { selectItem, logMode, pathMode, selectPathItem } = mapState;
 
-    const [open, setOpen] = useState(false);
-    const sheetRef = useRef();
-    useEffect(() => {
-        setOpen(true);
-    }, []);
-
     const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
     const [isTimePickerOpen, setIsTimePickerOpen] = useState(false);
     const [date, setDate] = useState(formatDate(new Date()));
@@ -27,6 +21,12 @@ export default function ItemHistorySheet() {
         from: 5,
         to: 7,
     });
+
+    const [open, setOpen] = useState(false);
+    const sheetRef = useRef();
+    useEffect(() => {
+        setOpen(true);
+    }, []);
 
     const [fetchPath, setFetchPath] = useState(false);
     const fetchUrl = fetchPath

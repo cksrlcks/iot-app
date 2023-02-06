@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { formatDate } from '../../../lib/date';
 export default function DatePicker({ value, setDate, setIsDatePickerOpen }) {
     const inputRef = useRef(null);

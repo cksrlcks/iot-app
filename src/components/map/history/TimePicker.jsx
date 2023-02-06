@@ -1,5 +1,5 @@
 import React from 'react';
-export default function TimePicker({ value, setTime, setIsTimePickerOpen }) {
+export default function TimePicker({ value, setIsTimePickerOpen }) {
     return (
         <>
             <div className="input-wrapper time-wrapper" onClick={() => setIsTimePickerOpen(true)}>
