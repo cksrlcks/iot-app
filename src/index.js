@@ -2,6 +2,7 @@
 // import 'react-app-polyfill/stable';
 // import 'core-js/stable';
 // import 'regenerator-runtime/runtime';
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
