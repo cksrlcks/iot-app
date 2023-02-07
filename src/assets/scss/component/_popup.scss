@@ -146,5 +146,21 @@
                 }
             }
         }
+
+        @media screen and (max-width: 380px) {
+            .popup-header {
+                .title {
+                    font-size: 1.7rem;
+                }
+                .date {
+                    font-size: 1.4rem;
+                }
+            }
+            .popup-body {
+                .content {
+                    font-size: 1.4rem;
+                }
+            }
+        }
     }
 }

@@ -26,6 +26,7 @@ export default function SummarySheet({
         return (
             <div className="loading-ment">
                 <img src={LoadingIcon} alt="loading" />
+                <br />
                 <div>{selectItem.unit_nm}의 정보를 가져오는 중입니다...</div>
             </div>
         );

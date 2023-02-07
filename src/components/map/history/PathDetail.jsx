@@ -91,9 +91,7 @@ export default function PathDetail() {
                                 </div>
                             </div>
                         </div>
-                        <div className="float-btn-wrapper">
-                            <Button label="거리뷰 보기" color="black" onClick={handleStreetView} />
-                        </div>
+                        <Button label="거리뷰 보기" color="black" onClick={handleStreetView} />
                     </>
                 )}
             </div>

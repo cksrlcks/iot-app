@@ -78,6 +78,12 @@
     &.hide {
         opacity: 0;
     }
+
+    @media screen and (max-width: 380px) {
+        bottom: calc(9.5rem);
+        bottom: calc(9.5rem + env(safe-area-inset-bottom));
+        bottom: calc(9.5rem + constant(safe-area-inset-bottom));
+    }
 }
 .bottom-sheet {
     z-index: 11;

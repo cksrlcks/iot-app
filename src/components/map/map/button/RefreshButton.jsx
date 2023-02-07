@@ -1,8 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function RefreshButton() {
+    const navigate = useNavigate;
     const handleRefrest = () => {
-        //navigate(0) //ios not work
+        //navigate(0); //ios not work
+        window.history.replaceState({}, document.title);
         document.location.reload();
     };
 

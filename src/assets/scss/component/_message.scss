@@ -30,6 +30,7 @@
         .count {
             width: 3.8rem;
             height: 2.2rem;
+            line-height: 2.2rem;
             border-radius: 9999px;
             display: flex;
             align-items: center;
@@ -70,6 +71,9 @@
         line-height: 2.1rem;
         & + .message-item {
             margin-left: 4px;
+        }
+        @media screen and (max-width: 380px) {
+            padding: 0 0.6em;
         }
     }
 }
@@ -137,6 +141,7 @@
 .type-badge {
     width: 4.8rem;
     height: 2.2rem;
+    line-height: 2.2rem;
     border-radius: 3px;
     background: #2f27af;
     color: #fff;

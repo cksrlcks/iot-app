@@ -61,6 +61,7 @@
             padding: 2.2rem;
             .label-title {
                 font-size: 1.8rem;
+                white-space: nowrap;
                 font-weight: 700;
                 color: #000;
                 margin-bottom: 0.3em;
@@ -90,6 +91,13 @@
                     left: calc(50% - 1px);
                     top: 50%;
                     transform: translate(-50%, -50%) rotate(-45deg);
+                }
+            }
+
+            @media screen and (max-width: 360px) {
+                padding: 1.8rem;
+                .label-title {
+                    font-size: 1.6rem;
                 }
             }
         }
