@@ -21,18 +21,26 @@ export default function ItemHistorySheet() {
 
     const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
     const [isTimePickerOpen, setIsTimePickerOpen] = useState(false);
-    const [date, setDate] = useState(formatDate(new Date()));
-    const [time, setTime] = useState({
-        from: 5,
-        to: 7,
+    const [formData, setFormData] = useState({
+        date: formatDate(new Date()),
+        time: {
+            from: 5,
+            to: 7,
+        },
     });
-    useEffect(() => {
-        console.log(`${date} 해당 날짜의 데이터를 가져옵니다.`);
-    }, [date]);
 
     useEffect(() => {
-        console.log(`${time.from}시 ~ ${time.to}시 해당 시간의 데이터를 가져옵니다.`);
-    }, [time]);
+        console.log(`${formData.date} 날짜의`);
+        console.log(`${formData.time.from}시 ~ ${formData.time.to}시의 데이터를 가져옵니다.`);
+    }, [formData]);
+
+    const handleDate = (date) => {
+        setFormData((prev) => ({ ...prev, date }));
+    };
+
+    const handleTime = (time) => {
+        setFormData((prev) => ({ ...prev, time }));
+    };
 
     const [open, setOpen] = useState(false);
     const sheetRef = useRef();
@@ -88,10 +96,10 @@ export default function ItemHistorySheet() {
                     expandOnContentDrag={true}
                     header={
                         <Header
-                            date={date}
-                            setDate={setDate}
-                            time={time}
-                            setTime={setTime}
+                            date={formData.date}
+                            setDate={handleDate}
+                            time={formData.time}
+                            setTime={handleTime}
                             setIsDatePickerOpen={setIsDatePickerOpen}
                             setIsTimePickerOpen={setIsTimePickerOpen}
                         />
@@ -110,16 +118,16 @@ export default function ItemHistorySheet() {
             {/* bottom sheet 의 header에서 react portal로 위치옮겨도 event bubbling때문에 뒷스크롤 제어 안됨, 따로 옮김 */}
             {isDatePickerOpen && (
                 <DatePickerModal
-                    date={date}
-                    setDate={setDate}
+                    date={formData.date}
+                    setDate={handleDate}
                     isDatePickerOpen={isDatePickerOpen}
                     setIsDatePickerOpen={setIsDatePickerOpen}
                 />
             )}
             {isTimePickerOpen && (
                 <TimePickerModal
-                    time={time}
-                    setTime={setTime}
+                    time={formData.time}
+                    setTime={handleTime}
                     isTimePickerOpen={isTimePickerOpen}
                     setIsTimePickerOpen={setIsTimePickerOpen}
                 />

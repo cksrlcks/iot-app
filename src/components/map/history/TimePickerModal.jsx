@@ -5,29 +5,30 @@ import Picker from 'react-mobile-picker-scroll';
 
 export default function TimePickerModal({ time, setTime, setIsTimePickerOpen }) {
     const modalRoot = document.getElementById('modal');
-    const handleTime = () => {
-        const { from, to } = valueGroups;
-        if (from > to) {
-            alert('종료시간은 시작시간보다 빠를수 없습니다. 다시 설정해주세요');
-            return;
-        }
-        setTime((prev) => ({ ...prev, ...valueGroups }));
-        setIsTimePickerOpen(false);
-    };
 
-    const [valueGroups, setValueGroups] = useState({
-        from: 5,
-        to: 7,
-    });
+    const [valueGroups, setValueGroups] = useState(time);
+
     const [optionGroups] = useState({
         from: [
             0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23,
         ],
         to: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
     });
+
     const handlePickerChange = (name, value) => {
         setValueGroups((prev) => ({ ...prev, [name]: value }));
     };
+
+    const handleTime = () => {
+        const { from, to } = valueGroups;
+        if (from > to) {
+            alert('종료시간은 시작시간보다 빠를수 없습니다. 다시 설정해주세요');
+            return;
+        }
+        setTime(valueGroups);
+        setIsTimePickerOpen(false);
+    };
+
     return createPortal(
         <div className="modal-datepicker" onClick={() => setIsTimePickerOpen(false)}>
             <div className="modal-inner" onClick={(e) => e.stopPropagation()}>
