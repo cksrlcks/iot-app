@@ -61,7 +61,6 @@ export const handlers = [
         const { searchParams } = req.url;
         const itemId = searchParams.get('id');
         //const itemName = searchParams.get('name');
-        console.log(trackingList.filter((item) => item.unitid === itemId));
         const { iconnum, unit_nm } = trackingList.filter((item) => item.unitid === itemId)[0];
         return res(
             ctx.status(200),
