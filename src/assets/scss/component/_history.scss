@@ -116,6 +116,10 @@
         font-weight: 500;
         letter-spacing: -0.03em;
         line-height: 1.2;
+        @media screen and (max-width: 380px) {
+            font-size: 1.3rem;
+            padding-left: 0;
+        }
     }
 }
 

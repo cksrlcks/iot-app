@@ -71,6 +71,7 @@ function mapReducer(state, action) {
                     pathData: null,
                     pathMode: false,
                     isMapClicked: !state.isMapClicked,
+                    pathMarkerShow: true,
                 };
             }
             if (state.pathMode) {
@@ -115,6 +116,11 @@ function mapReducer(state, action) {
                 historyMode: false,
             };
         /* falls through */
+        case 'SET_HIDE_PATH_MARKER':
+            return {
+                ...state,
+                pathMarkerShow: !state.pathMarkerShow,
+            };
         default:
             throw new Error('Unsupported action type:', action.type);
     }
@@ -142,6 +148,7 @@ const initialMapState = {
         zoom: 17,
     },
     isMapClicked: false,
+    pathMarkerShow: true,
 };
 
 const MapContext = createContext();

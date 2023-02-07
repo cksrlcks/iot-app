@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34">
+  <g id="그룹_10232" data-name="그룹 10232" transform="translate(-334 -184)">
+    <g id="그룹_420" data-name="그룹 420" transform="translate(334.48 184.48)" opacity="0">
+      <rect id="사각형_246" data-name="사각형 246" width="34" height="34" rx="17" transform="translate(-0.48 -0.48)"/>
+    </g>
+    <path id="빼기_2" data-name="빼기 2" d="M6,16.111a1.635,1.635,0,0,1-1.428-.823L.857,8.876.8,8.772A5.758,5.758,0,0,1,0,5.908V5.8A5.947,5.947,0,0,1,1.665,1.762,5.769,5.769,0,0,1,5.851,0h.3a5.781,5.781,0,0,1,5.063,2.927A5.782,5.782,0,0,1,11.2,8.776l-.051.088L7.431,15.287A1.635,1.635,0,0,1,6,16.111ZM6,3.192A2.768,2.768,0,1,0,8.768,5.961,2.772,2.772,0,0,0,6,3.192Z" transform="translate(345 193)" fill="#fff" stroke="rgba(0,0,0,0)" stroke-miterlimit="10" stroke-width="1"/>
+  </g>
+</svg>

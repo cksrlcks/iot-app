@@ -9,8 +9,13 @@ import PathDetail from './PathDetail';
 import DatePickerModal from './DatePickerModal';
 import { formatDate } from '../../../lib/date';
 import TimePickerModal from './TimePickerModal';
+import { isIOS } from 'react-device-detect';
 
 export default function ItemHistorySheet() {
+    const bottomHeight = isIOS
+        ? +getComputedStyle(document.documentElement).getPropertyValue('--sab').replace('px', '') +
+          94
+        : 94;
     const { mapState, mapDispatch } = useMap();
     const { selectItem, logMode, pathMode, selectPathItem } = mapState;
 
@@ -21,6 +26,13 @@ export default function ItemHistorySheet() {
         from: 5,
         to: 7,
     });
+    useEffect(() => {
+        console.log(`${date} 해당 날짜의 데이터를 가져옵니다.`);
+    }, [date]);
+
+    useEffect(() => {
+        console.log(`${time.from}시 ~ ${time.to}시 해당 시간의 데이터를 가져옵니다.`);
+    }, [time]);
 
     const [open, setOpen] = useState(false);
     const sheetRef = useRef();
@@ -33,15 +45,27 @@ export default function ItemHistorySheet() {
         ? `/api/pathCoords?id=${selectItem.unitid}${logMode ? '&test="small"' : ''}`
         : null;
     const { data } = useFetch(fetchUrl);
+
     useEffect(() => {
         if (data) {
             mapDispatch({ type: 'SET_PATH_DATA', payload: data });
             setFetchPath(false);
+            setTimeout(function () {
+                sheetRef.current?.snapTo(({ snapPoints }) => {
+                    return snapPoints[3];
+                });
+            }, 200);
         }
     }, [data, mapDispatch]);
 
-    const handleShowPath = async () => {
-        sheetRef.current?.snapTo(({ snapPoints }) => Math.min(...snapPoints));
+    useEffect(() => {
+        //패스모드가 풀릴때 다시 올라오기
+        if (!pathMode) {
+            sheetRef.current?.snapTo(({ snapPoints }) => snapPoints[1]);
+        }
+    }, [pathMode]);
+
+    const handleShowPath = () => {
         setFetchPath(true);
     };
 
@@ -54,7 +78,12 @@ export default function ItemHistorySheet() {
                     ref={sheetRef}
                     skipInitialTransition={true}
                     defaultSnap={() => 350}
-                    snapPoints={({ maxHeight }) => [maxHeight - 100, maxHeight / 2, 350]}
+                    snapPoints={({ maxHeight }) => [
+                        maxHeight - 100,
+                        maxHeight / 2,
+                        350,
+                        bottomHeight,
+                    ]}
                     blocking={false}
                     expandOnContentDrag={true}
                     header={
@@ -67,13 +96,13 @@ export default function ItemHistorySheet() {
                             setIsTimePickerOpen={setIsTimePickerOpen}
                         />
                     }
+                    footer={
+                        !pathMode && (
+                            <Button label="경로보기" color="black" onClick={handleShowPath} />
+                        )
+                    }
                 >
                     <ItemHistory handleShowPath={handleShowPath} />
-                    {!pathMode && (
-                        <div className="float-btn-wrapper">
-                            <Button label="경로보기" color="black" onClick={handleShowPath} />
-                        </div>
-                    )}
                 </BottomSheet>
             )}
             {selectPathItem && <PathDetail />}

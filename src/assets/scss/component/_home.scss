@@ -32,6 +32,7 @@
 }
 .quick-list {
     display: flex;
+    overflow: visible;
     > * + * {
         margin-left: 4px;
     }
@@ -118,6 +119,41 @@
                 .label-eng {
                     color: #fff;
                     opacity: 0.62;
+                }
+            }
+        }
+
+        &.push {
+            background: rgb(142, 152, 144);
+            background: linear-gradient(167deg, #f8f4e8 0%, #cbbda6 100%);
+        }
+
+        &.log {
+            .label {
+                .label-title {
+                    color: #fff;
+                }
+                .label-eng {
+                    color: #fff;
+                    opacity: 0.62;
+                }
+                .arrow {
+                    background: rgba(255, 255, 255, 0.2);
+                }
+            }
+        }
+
+        &.setting {
+            .label {
+                .label-title {
+                    color: #fff;
+                }
+                .label-eng {
+                    color: #fff;
+                    opacity: 0.62;
+                }
+                .arrow {
+                    background: rgba(255, 255, 255, 0.2);
                 }
             }
         }

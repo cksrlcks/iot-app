@@ -6,6 +6,7 @@ import { sortJSON } from '../../../lib/sort';
 import TrackList from './TrackingList';
 import FilterModal from './FilterModal';
 import Header from './Header';
+import { isAndroid, isIOS } from 'react-device-detect';
 
 export default function TrackingList() {
     const { mapState, mapDispatch } = useMap();
@@ -21,9 +22,10 @@ export default function TrackingList() {
     const [keyword, setKeyword] = useState('');
 
     const renderList = filteredData ? filteredData : data;
-    const iosBottomPadding = +getComputedStyle(document.documentElement)
-        .getPropertyValue('--sab')
-        .replace('px', '');
+    const bottomHeight = isIOS
+        ? +getComputedStyle(document.documentElement).getPropertyValue('--sab').replace('px', '') +
+          94
+        : 94;
 
     //검색바 onchange
     const handleSearch = (e) => {
@@ -77,16 +79,14 @@ export default function TrackingList() {
                 ref={sheetRef}
                 skipInitialTransition={true}
                 defaultSnap={({ snapPoints }) => Math.min(...snapPoints)}
-                snapPoints={({ maxHeight }) => [
-                    maxHeight - maxHeight / 10,
-                    maxHeight / 4,
-                    94 + iosBottomPadding,
-                ]}
+                snapPoints={({ maxHeight }) => {
+                    return [maxHeight - 80, maxHeight / 2, bottomHeight];
+                }}
                 blocking={false}
                 expandOnContentDrag={true}
                 onSpringEnd={() => {
                     requestAnimationFrame(() => {
-                        if (sheetRef.current?.height < 100 + iosBottomPadding) {
+                        if (sheetRef.current?.height <= bottomHeight) {
                             return setFullBtnShow(true);
                         } else {
                             return setFullBtnShow(false);

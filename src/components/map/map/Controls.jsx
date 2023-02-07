@@ -4,6 +4,7 @@ import RefreshButton from './button/RefreshButton';
 import StreetButton from './button/StreetButton';
 import TypeButton from './button/TypeButton';
 import ZoomBtn from './button/ZoomBtn';
+import PathButton from './button/PathButton';
 
 export default function Controls() {
     return (
@@ -16,6 +17,7 @@ export default function Controls() {
             </div>
             <div className="right">
                 <ZoomBtn />
+                <PathButton />
             </div>
         </div>
     );

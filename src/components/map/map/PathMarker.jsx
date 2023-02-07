@@ -4,7 +4,7 @@ import { getCenter, getMarkerType } from '../../../lib/mapHelper';
 
 export default function PathMarker() {
     const { mapState } = useMap();
-    const { map, pathData } = mapState;
+    const { map, pathData, pathMarkerShow } = mapState;
 
     const { centerY: y, centerX: x } = getCenter(pathData);
     useEffect(() => {
@@ -22,11 +22,14 @@ export default function PathMarker() {
             );
         }
     }, [x, y, map]);
+
     return (
         <>
-            {pathData.map((item) => {
-                return <Marker key={item.idx} item={item} />;
-            })}
+            {pathMarkerShow &&
+                pathData.map((item) => {
+                    return <Marker key={item.idx} item={item} />;
+                })}
+
             <PolyLine item={pathData} />
         </>
     );
@@ -130,6 +133,10 @@ function PolyLine({ item }) {
                 strokeOpacity: 1,
                 strokeWeight: 5,
                 filter: 'drop-shadow( 3px 10px 2px rgba(0, 0, 0, .7))',
+                startIcon: naver.maps.PointingIcon.BLOCK_ARROW,
+                startIconSize: 20,
+                endIcon: naver.maps.PointingIcon.CIRCLE,
+                endIconSize: 20,
             });
 
             poly._shape._shapeElement.parentNode.classList.add('path-shadow');

@@ -533,6 +533,22 @@
                 color: #000;
             }
         }
+
+        .path {
+            margin-top: 0.8rem;
+            width: 3rem;
+            height: 3rem;
+            position: relative;
+            img {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+            &.on {
+                background: #22dc47;
+            }
+        }
     }
 
     //클러스터
@@ -879,7 +895,7 @@
     transform: translate(-50%, 100%);
     transition: all 0.2s;
     box-shadow: 0 -11px 38px rgb(0 0 0 / 4%);
-    @include paddingBottomWithDock;
+    padding-bottom: 9.8rem;
 
     &.sheet-enter {
         transform: translate(-50%, 100%);
@@ -903,16 +919,16 @@
 
     &.detail-panel {
         > div {
-            height: 22rem;
-            height: calc(22rem + constant(safe-area-inset-bottom));
-            height: calc(22rem + env(safe-area-inset-bottom));
+            height: 21rem;
+            height: calc(21rem + constant(safe-area-inset-bottom));
+            height: calc(21rem + env(safe-area-inset-bottom));
             transition: all 0.2s ease;
         }
 
         > div.on {
-            height: 46rem;
-            height: calc(46rem + constant(safe-area-inset-bottom));
-            height: calc(46rem + env(safe-area-inset-bottom));
+            height: 44rem;
+            height: calc(44rem + constant(safe-area-inset-bottom));
+            height: calc(44rem + env(safe-area-inset-bottom));
         }
     }
 

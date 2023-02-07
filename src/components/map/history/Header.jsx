@@ -15,14 +15,6 @@ export default function Header({
 }) {
     const { mapState, mapDispatch } = useMap();
 
-    useEffect(() => {
-        console.log(`${date} 해당 날짜의 데이터를 가져옵니다.`);
-    }, [date]);
-
-    useEffect(() => {
-        console.log(`${time.from}시 ~ ${time.to}시 해당 시간의 데이터를 가져옵니다.`);
-    }, [time]);
-
     const handleClose = () => {
         mapDispatch({ type: 'HISTORY_BLUR' });
     };

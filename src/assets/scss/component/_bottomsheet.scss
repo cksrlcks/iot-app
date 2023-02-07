@@ -1,5 +1,7 @@
 [data-rsbs-root] {
-    position: relative;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     transform: translate3d(0, 0, 0);
     -webkit-transform: translate3d(0, 0, 0);
 }
@@ -17,7 +19,31 @@
         top: 8px !important;
     }
 }
-
+[data-rsbs-footer] {
+    margin-bottom: 74px;
+    box-shadow: none !important;
+    position: relative;
+    overflow: visible !important;
+    padding-top: 0 !important;
+    &:after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 30px;
+        position: absolute;
+        top: -30px;
+        left: 0;
+        background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 1) 80%
+        ) !important;
+        pointer-events: none;
+    }
+    .common-btn {
+        height: 4.4rem;
+    }
+}
 [data-rsbs-scroll] {
     &::-webkit-scrollbar {
         width: 4px;
