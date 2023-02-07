@@ -144,7 +144,6 @@ function SummaryHeader({ item, isDetail, setIsDetail, isEventModal, isShareModal
     const handleClose = () => {
         isDetail ? setIsDetail(false) : mapDispatch({ type: 'BLUR' });
     };
-    console.log(item);
     return (
         <>
             {item && (

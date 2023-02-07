@@ -1,8 +1,7 @@
 import React from 'react';
-import { getMarkerType, getTerminalType } from '../../lib/mapHelper';
+import { getMarkerType } from '../../lib/mapHelper';
 
 export default function LinkItem({ item }) {
-    console.log(item);
     const getTerminalType = (string) => {
         return string.split('(')[1].split(')')[0];
     };
