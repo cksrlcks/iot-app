@@ -2,6 +2,7 @@ import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
+import 'abortcontroller-polyfill/dist/polyfill-patch-fetch';
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';

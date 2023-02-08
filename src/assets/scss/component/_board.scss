@@ -44,6 +44,9 @@
             .addr-field {
                 margin: 0.8rem 0 2rem;
             }
+            .multi-search-form {
+                margin: 2.4rem 0 2rem;
+            }
         }
     }
     .page-body {
@@ -509,6 +512,7 @@
     .badge {
         padding: 0 1.2rem;
         height: 2.4rem;
+        line-height: 2.4rem;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -526,6 +530,14 @@
         font-weight: 700;
         color: #000;
         margin-top: -2px;
+    }
+
+    @media screen and (max-width: 380px) {
+        .name {
+            font-size: 1.6rem;
+            margin-top: 0;
+            padding-top: 2px;
+        }
     }
 }
 

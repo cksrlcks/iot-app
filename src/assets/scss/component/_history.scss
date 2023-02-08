@@ -206,3 +206,23 @@
         }
     }
 }
+
+@media screen and (max-width: 380px) {
+    .history-control {
+        margin-bottom: 1rem;
+        .input-wrapper {
+            height: 3.2rem;
+        }
+        .input-date {
+            input {
+                font-size: 1.2rem;
+            }
+        }
+        .time-wrapper {
+            padding: 1px 6px 0 6px;
+            span {
+                font-size: 1.2rem;
+            }
+        }
+    }
+}

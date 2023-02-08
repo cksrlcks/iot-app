@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { BottomSheet } from 'react-spring-bottom-sheet';
+import { isIOS } from 'react-device-detect';
 import { useMap } from '../../../context/MapContext';
 import useFetch from './../../../hook/useFetch';
 import Button from '../../button/Button';
@@ -9,7 +10,6 @@ import PathDetail from './PathDetail';
 import DatePickerModal from './DatePickerModal';
 import { formatDate } from '../../../lib/date';
 import TimePickerModal from './TimePickerModal';
-import { isIOS } from 'react-device-detect';
 
 export default function ItemHistorySheet() {
     const bottomHeight = isIOS

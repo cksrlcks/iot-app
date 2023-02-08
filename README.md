@@ -8,7 +8,7 @@
 
 -   msw를 사용못하는 환경일 경우(서비스워커 사용불가 브라우저) : mock api server(express)도 같이 넣어두었습니다.
 
-    1.  index.js에서 msw관련 import 및 source코드 주석후
+    1.  src/index.js에서 msw관련 import 및 source코드 주석후 (11~17번줄)
     2.  package.json에 "proxy": "http://localhost:5000" 추가후
     3.  back폴더내부에서 npm start로 mock api 서버도 같이 실행
 
@@ -30,4 +30,7 @@
 
 ---
 
-npm start : 테스트 서버 실행
+**project 시작**
+
+1. npm install
+2. npm start : 테스트 서버 실행

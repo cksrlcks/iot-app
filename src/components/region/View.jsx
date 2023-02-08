@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BottomSheet } from 'react-spring-bottom-sheet';
+import { isIOS } from 'react-device-detect';
 import { useMap } from '../../context/RegionContext';
 import Button from './../../components/button/Button';
 import CustomRange from '../../components/common/Range';
@@ -11,6 +12,10 @@ import DaumPostBtn from './DaumPostBtn';
 import CustomRadio from '../common/CustomRadio';
 
 export default function View({ data }) {
+    const bottomHeight = isIOS
+        ? +getComputedStyle(document.documentElement).getPropertyValue('--sab').replace('px', '') +
+          94
+        : 94;
     const navigate = useNavigate();
     const { mapState, mapDispatch } = useMap();
     const { coords, addr } = mapState;
@@ -102,9 +107,15 @@ export default function View({ data }) {
                 ref={sheetRef}
                 skipInitialTransition={true}
                 defaultSnap={() => 350}
-                snapPoints={({ maxHeight }) => [maxHeight - 100, maxHeight / 2, 350]}
+                snapPoints={({ maxHeight }) => [maxHeight - 100, maxHeight / 2, 350, bottomHeight]}
                 blocking={false}
                 expandOnContentDrag={true}
+                footer={
+                    <div className="flex">
+                        <Button label="취소" color="white" onClick={handleBack} />
+                        <Button label="저장" color="black" type="submit" />
+                    </div>
+                }
             >
                 <div className="sheet-content">
                     <form onSubmit={handleSubmit} className="region-wrapper">
@@ -199,10 +210,6 @@ export default function View({ data }) {
                                     />
                                 </div>
                             </div>
-                        </div>
-                        <div className="float-btn-wrapper flex">
-                            <Button label="취소" color="white" onClick={handleBack} />
-                            <Button label="저장" color="black" type="submit" />
                         </div>
                     </form>
                 </div>

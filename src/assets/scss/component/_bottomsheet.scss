@@ -9,6 +9,7 @@
     left: 50% !important;
     width: 100% !important;
     transform: translate3d(-50%, 0, 0) !important;
+    overflow: hidden;
 }
 [data-rsbs-header] {
     padding-top: 12px !important;
@@ -47,6 +48,7 @@
     }
 }
 [data-rsbs-scroll] {
+    overflow: overlay !important;
     &::-webkit-scrollbar {
         width: 4px;
         overflow: overlay;
@@ -56,6 +58,7 @@
         border-radius: 9999px;
     }
 }
+
 .full-btn {
     position: fixed;
     left: 50%;
@@ -99,5 +102,24 @@
         margin-bottom: 1.5rem;
         display: flex;
         justify-content: space-between;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    [data-rsbs-header] {
+        padding-left: 1.4rem !important;
+        padding-right: 1.4rem !important;
+    }
+    [data-rsbs-footer] {
+        .common-btn {
+            height: 3.8rem;
+        }
+    }
+
+    .bottom-sheet {
+        .sheet-content {
+            padding: 0 1.4rem;
+            @include paddingBottomWithDock;
+        }
     }
 }

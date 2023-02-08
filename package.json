@@ -6,12 +6,9 @@
         "@testing-library/jest-dom": "^5.16.5",
         "@testing-library/react": "^13.4.0",
         "@testing-library/user-event": "^13.5.0",
-        "assert": "^2.0.0",
+        "abortcontroller-polyfill": "^1.7.5",
         "axios": "^1.2.3",
-        "babel-polyfill": "^6.26.0",
-        "babel-preset-stage-3": "^6.24.1",
         "core-js": "^3.27.2",
-        "globalthis": "^1.0.3",
         "msw": "^1.0.0",
         "prettier": "^2.8.3",
         "react": "^18.2.0",
@@ -60,8 +57,8 @@
             "not op_mini all"
         ],
         "development": [
-            "chrome 68",
-            "ie 11",
+            "chrome 60",
+            "ie 8",
             "last 1 firefox version",
             "last 1 safari version"
         ]

@@ -14,6 +14,15 @@
         color: #000;
         font-weight: 700;
     }
+
+    @media screen and (max-width: 380px) {
+        .info-label {
+            font-size: 1.4rem;
+        }
+        .info-detail {
+            font-size: 1.4rem;
+        }
+    }
 }
 
 .filter-btn {

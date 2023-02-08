@@ -1,5 +1,5 @@
 import React from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, createHashRouter, RouterProvider } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 
 import ProtectedRoute from './components/route/ProtectedRoute';
@@ -37,7 +37,7 @@ import './assets/scss/style.scss';
 import 'remixicon/fonts/remixicon.css';
 import 'react-spring-bottom-sheet/dist/style.css';
 
-const router = createBrowserRouter([
+const router = createHashRouter([
     {
         path: '/',
         element: <Root />,
