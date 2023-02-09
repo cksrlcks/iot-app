@@ -8,7 +8,15 @@ export default function UserInfo({ logout }) {
     return (
         <div className="user-info-wrapper">
             <div className={`user-avatar ${user.type}`}>
-                <div className="user-type">{user.type === 'normal' ? '일반' : '기사'}</div>
+                <div className="user-type">
+                    {user.type === 'normal'
+                        ? lang === 'ko'
+                            ? '일반'
+                            : 'User'
+                        : lang === 'ko'
+                        ? '기사'
+                        : 'Driver'}
+                </div>
                 <div className="user-name">{user.userName}</div>
             </div>
             {user.type === 'normal' ? (
