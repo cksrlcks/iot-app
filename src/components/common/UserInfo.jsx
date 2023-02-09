@@ -1,8 +1,10 @@
 import React from 'react';
 import { useAuth } from '../../context/AuthContext';
+import { useLang } from '../../context/LangContext';
 
 export default function UserInfo({ logout }) {
     const { user, handleLogout } = useAuth();
+    const { lang } = useLang();
     return (
         <div className="user-info-wrapper">
             <div className={`user-avatar ${user.type}`}>
@@ -24,7 +26,7 @@ export default function UserInfo({ logout }) {
             {logout && (
                 <button className="logout" onClick={handleLogout}>
                     <i className="ri-logout-box-r-fill icon"></i>
-                    <span className="title">로그아웃</span>
+                    <span className="title">{lang === 'ko' ? '로그아웃' : 'Sign Out'}</span>
                 </button>
             )}
         </div>

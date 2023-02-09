@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { CSSTransition } from 'react-transition-group';
 import Logo from '../../assets/img/common/logo-black.svg';
+import { useLang } from '../../context/LangContext';
 
 export default function Language() {
     const [isOpen, setIsOpen] = useState(false);
-    const handleLanguage = () => {
+    const { lang, handleLang } = useLang();
+    const handleLanguage = (lang) => {
         setIsOpen(false);
+        handleLang(lang);
     };
     return (
         <div className="lang-header">
@@ -15,7 +18,7 @@ export default function Language() {
             </div>
             <button type="button" className="lang-select" onClick={() => setIsOpen(true)}>
                 <i className="ri-global-line icon"></i>
-                <span>KOR</span>
+                <span>{lang === 'ko' ? 'KOR' : 'ENG'}</span>
             </button>
             <CSSTransition in={isOpen} classNames="modal" timeout={200} unmountOnExit>
                 <LanguageModal
@@ -36,12 +39,12 @@ function LanguageModal({ handleLanguage, setIsOpen }) {
                 <div className="modal-page" onClick={(e) => e.stopPropagation()}>
                     <ul className="option-list">
                         <li>
-                            <button type="button" onClick={handleLanguage}>
+                            <button type="button" onClick={() => handleLanguage('ko')}>
                                 4GUARD-국문(KOR)
                             </button>
                         </li>
                         <li>
-                            <button type="button" onClick={handleLanguage}>
+                            <button type="button" onClick={() => handleLanguage('en')}>
                                 4GUARD-영문(ENG)
                             </button>
                         </li>

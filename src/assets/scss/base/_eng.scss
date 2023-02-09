@@ -1,0 +1,21 @@
+[lang='en'] {
+    .user-info-wrapper .user-avatar .user-type {
+        font-size: 1.1rem;
+    }
+
+    .list-page-wrapper .item.log .log-detail .detail .label {
+        width: 6em;
+        flex: 0 0 6em;
+    }
+
+    .custom-check .label,
+    .custom-check .label-name {
+        font-size: 1.4rem;
+    }
+
+    .addr-field .addr-info .info-item .item-label {
+        flex: 0 0 6.7rem;
+        width: 6.7rem;
+        white-space: nowrap;
+    }
+}

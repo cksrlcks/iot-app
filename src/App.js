@@ -36,6 +36,7 @@ import SettingView from './pages/setting/View';
 import './assets/scss/style.scss';
 import 'remixicon/fonts/remixicon.css';
 import 'react-spring-bottom-sheet/dist/style.css';
+import { LangProvider } from './context/LangContext';
 
 const router = createHashRouter([
     {
@@ -144,7 +145,9 @@ const router = createHashRouter([
 export default function App() {
     return (
         <AuthProvider>
-            <RouterProvider router={router} />
+            <LangProvider>
+                <RouterProvider router={router} />
+            </LangProvider>
         </AuthProvider>
     );
 }
