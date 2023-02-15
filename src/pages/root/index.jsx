@@ -14,7 +14,8 @@ export default function Root() {
     useEffect(() => {
         const html = document.querySelector('html');
         if (osVersion) {
-            html.classList.add(`${osName.toLocaleLowerCase()}-${osVersion.split('.')[0]}`);
+            const string = `${osName.toLocaleLowerCase()}-${osVersion.split('.')[0]}`;
+            html.classList.add(string.replace(/ /g, ''));
         }
     }, []);
 
