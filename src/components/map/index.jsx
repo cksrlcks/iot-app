@@ -6,6 +6,7 @@ import useFetch from './../../hook/useFetch';
 // map
 import NaverMap from './map/NaverMap';
 import Marker from './map/Marker';
+import GeoMarker from './map/GeoMarker';
 import PathMarker from './map/PathMarker';
 import NaverPanoMap from './map/NaverPanoMap';
 import Controls from './map/Controls';
@@ -13,18 +14,21 @@ import PanoControls from './map/PanoControls';
 
 import TrackingListSheet from './tracking/TrackingListSheet';
 import ItemDetail from './detail/ItemDetail';
+import GeoDetail from './detail/GeoDetail';
 
 import ItemHistorySheet from './history/ItemHistorySheet';
 import TotalEvent from './event/TotalEvent';
 
 import Loading from '../common/Loading';
 
-export default function Map({ data, isLoading }) {
+export default function Map({ data, geoData, isLoading }) {
     const location = useLocation();
     const { naver } = window;
     const { mapState, mapDispatch } = useMap();
     const {
         trackingList: trackingItems,
+        geofenceList,
+        selectGeoItem,
         selectItem,
         pathData,
         panoItem,
@@ -43,6 +47,12 @@ export default function Map({ data, isLoading }) {
             mapDispatch({ type: 'SET_TOTAL_EVENT_COUNT', payload: data.totalEventCount });
         }
     }, [data, mapDispatch]);
+
+    useEffect(() => {
+        if (geoData) {
+            mapDispatch({ type: 'SET_GEOFENCE_LIST', payload: geoData.lists });
+        }
+    }, [geoData, mapDispatch]);
 
     useEffect(() => {
         if (location.state?.totalEventMode) {
@@ -79,16 +89,23 @@ export default function Map({ data, isLoading }) {
                         trackingItems?.map((item) => {
                             return <Marker key={item.unitid} item={item} />;
                         })}
+                    {geofenceList?.map((item) => {
+                        return <GeoMarker key={item.unitid} item={item} />;
+                    })}
                     {pathData && <PathMarker />}
                     <Controls />
                 </NaverMap>
 
-                {/* selectItem : 마커클릭시 | historyMode : 경로보기 눌렀을때(아직 패스는 안그려진상태) | pathMode : 경로그려졌을때*/}
-                {!pathData && !selectItem && <TrackingListSheet />}
+                {!panoItem && !historyMode && <GeoDetail item={selectGeoItem} />}
 
-                {!panoItem && !historyMode && <ItemDetail />}
+                {/* selectItem : 마커클릭시 | historyMode : 경로보기 눌렀을때(아직 패스는 안그려진상태) | pathMode : 경로그려졌을때*/}
+                {!pathData && !selectItem && !selectGeoItem && <TrackingListSheet />}
+
+                {!panoItem && !historyMode && !selectGeoItem && <ItemDetail />}
 
                 {historyMode && <ItemHistorySheet />}
+
+                {}
 
                 {panoItem && (
                     <NaverPanoMap>

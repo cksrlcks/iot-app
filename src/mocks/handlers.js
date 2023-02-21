@@ -45,6 +45,38 @@ export const handlers = [
         );
     }),
 
+    //geofence data
+    rest.get('/api/geofence', async (req, res, ctx) => {
+        return res(
+            ctx.status(200),
+            ctx.json({
+                lists: [
+                    {
+                        unitid: '1',
+                        name: '지역팬스1',
+                        radius: 500,
+                        status: '진입',
+                        addr_road: '부산광역시 해운대구 센텀북대로 60 센텀아이에스타워',
+                        addr_jibun: '부산광역시 해운대구 재송동 1219 센텀아이에스타워',
+                        latitude: 35.1768,
+                        longitude: 129.1256,
+                    },
+
+                    {
+                        unitid: '2',
+                        name: '지역팬스2',
+                        radius: 1000,
+                        status: '진입',
+                        addr_road: '부산광역시 해운대구 센텀북대로 60 센텀아이에스타워',
+                        addr_jibun: '부산광역시 해운대구 재송동 1219 센텀아이에스타워',
+                        latitude: 35.1768,
+                        longitude: 129.1286,
+                    },
+                ],
+            })
+        );
+    }),
+
     //Tracking list (all)
     rest.get('/api/tracking', (req, res, ctx) => {
         return res(

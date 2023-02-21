@@ -112,6 +112,10 @@
     &.end .marker-icon:before {
         border-top-color: #b9b9b9;
     }
+    &.geo {
+        position: relative;
+        z-index: 999999999;
+    }
     &.geo .marker-icon:before {
         border-top-color: #a49fef;
     }
@@ -1144,6 +1148,18 @@
             color: #000;
             font-weight: 600;
             margin-left: 0;
+        }
+    }
+}
+
+.geo-panel {
+    .summary-header {
+        .item-info-wrapper {
+            justify-content: space-between;
+
+            .icon i {
+                font-weight: 400;
+            }
         }
     }
 }

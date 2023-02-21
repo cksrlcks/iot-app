@@ -5,7 +5,7 @@ import { getMarkerType } from '../../../lib/mapHelper';
 export default function Marker({ item }) {
     const { naver } = window;
     const { mapState, mapDispatch } = useMap();
-    const { map, cluster, selectItem, pathData } = mapState;
+    const { map, cluster, selectGeoItem, pathData } = mapState;
     const [marker, setMarker] = useState(null);
 
     useEffect(() => {
@@ -29,39 +29,34 @@ export default function Marker({ item }) {
                 map: map,
                 icon: {
                     content: `
-                    <div class="marker ${getMarkerType(item.iconnum)}">
+                    <div class="marker geo">
                         <div class="marker-icon">
                             <span class="icon">
-                                <i></i>
+                            <i class="ri-community-fill"></i>
                             </span>
                         </div>
-                        <div class="marker-name">${item.unit_nm}</div>
+                        <div class="marker-name">${item.name}</div>
                     </div>
                 `,
                 },
-                markerId: item.unitid,
             });
 
             marker.eventTarget.parentNode.classList.add('size');
 
-            //클러스터에 등록후 갱신(클러스터 내부 매서드이용해서 업데이트
-            cluster?.setMarker(marker);
-            cluster?._updateClusters();
-
             //마커의 클릭에는 selected state변경만 유도
             naver.maps.Event.addListener(marker, 'click', (e) => {
                 mapDispatch({
-                    type: 'SET_SELECT_ITEM',
+                    type: 'SET_SELECT_GEO_ITEM',
                     payload: item,
                 });
             });
         }
-    }, [map, marker, naver, item, cluster, selectItem, mapDispatch]);
+    }, [map, marker, naver, item, cluster, selectGeoItem, mapDispatch]);
 
     useEffect(() => {
         //selected state변경이되면 마커위치로 이동하고 클래스 토글
         if (marker) {
-            if (selectItem && selectItem.unitid === item.unitid) {
+            if (selectGeoItem && selectGeoItem.unitid === item.unitid) {
                 map.setZoom(20, false);
                 map.panTo(
                     {
@@ -78,7 +73,7 @@ export default function Marker({ item }) {
                 marker.eventTarget.parentNode.classList.remove('active');
             }
         }
-    }, [map, item, marker, selectItem, cluster, pathData]);
+    }, [map, item, marker, selectGeoItem, cluster, pathData]);
 
     return null;
 }

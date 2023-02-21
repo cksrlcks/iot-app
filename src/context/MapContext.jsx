@@ -14,6 +14,9 @@ function mapReducer(state, action) {
         case 'SET_TRACKING_LIST':
             return { ...state, trackingList: action.payload };
         /* falls through */
+        case 'SET_GEOFENCE_LIST':
+            return { ...state, geofenceList: action.payload };
+        /* falls through */
         case 'SET_SELECT_ITEM':
             return {
                 ...state,
@@ -22,8 +25,19 @@ function mapReducer(state, action) {
                 pathData: null,
                 historyMode: false,
                 selectPathItem: null,
+                selectGeoItem: null,
             };
         /* falls through */
+        case 'SET_SELECT_GEO_ITEM':
+            return {
+                ...state,
+                selectItem: null,
+                pathMode: false,
+                pathData: null,
+                historyMode: false,
+                selectPathItem: null,
+                selectGeoItem: action.payload,
+            };
         case 'SET_PANO_ITEM':
             return { ...state, panoItem: action.payload };
         /* falls through */
@@ -95,6 +109,7 @@ function mapReducer(state, action) {
                 return {
                     ...state,
                     isMapClicked: !state.isMapClicked,
+                    selectGeoItem: null,
                 };
             }
 
@@ -103,6 +118,7 @@ function mapReducer(state, action) {
                     ...state,
                     selectItem: null,
                     isMapClicked: !state.isMapClicked,
+                    selectGeoItem: null,
                 };
             }
 
