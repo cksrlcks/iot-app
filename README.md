@@ -1,5 +1,8 @@
 # IOTPLEX 4GUARD MOBILE
 
+**프리뷰 URL**
+https://iot-app-sample.netlify.app
+
 **프로젝트 셋팅**
 
 -   project setting : CRA 사용
